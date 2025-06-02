@@ -100,6 +100,8 @@
             border-bottom-left-radius: 10px;
             display: flex;
             flex-direction: column;
+            align-items: center; /* Centrado horizontal */
+            justify-content: center; /* Centrado vertical si el contenido es más pequeño que el contenedor */
             gap: 15px;
             box-shadow: -3px 0 10px rgba(0,0,0,0.2);
         }
@@ -121,6 +123,8 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
+            align-items: center; /* Centrado horizontal */
+            justify-content: center; /* Centrado vertical si el contenido es más pequeño que el contenedor */
             gap: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
@@ -212,17 +216,15 @@
                 </button>
             </div>
         </nav>
-    </header>
-
-    <section class="bg-primary-blue py-3 px-4">
-        <div class="container mx-auto">
-            <div class="relative max-w-md mx-auto"> <input type="text" placeholder="Buscar telas, categorías..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <i class="fas fa-search text-gray-400"></i>
+        <div class="bg-primary-blue py-2 px-4"> <div class="container mx-auto">
+                <div class="relative w-full md:max-w-3xl md:mx-auto"> <input type="text" placeholder="Buscar telas, categorías..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <div id="mobile-menu-overlay" class="mobile-menu-overlay">
         <div id="mobile-menu-content" class="mobile-menu-content">
@@ -364,14 +366,12 @@
     </section>
 
     <footer class="bg-primary-blue text-text-light py-10">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <div class="mb-4 md:mb-0">
-                <h3 class="text-xl font-bold mb-2">Telas y Elásticos S.A.S.</h3>
-                <p class="text-sm">© 2025 Todos los derechos reservados.</p>
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
+            <div class="mb-2">
+                <h3 class="text-xl font-bold">Telas y Elásticos S.A.S.</h3>
             </div>
             <div>
-                <p class="text-sm">CALLE 37 # 16-04 LOCAL: 377, Bucaramanga, Colombia</p>
-                <p class="text-sm">Teléfono: +57 318 7126104</p>
+                <p class="text-sm">© 2025 Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
