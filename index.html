@@ -15,6 +15,16 @@
             --color-text-dark: #333333;
             --color-text-light: #f9fafb;
             --color-bg-light: #f0f9ff; /* Un azul muy claro para fondos */
+
+            /* Colores vibrantes para títulos de categorías */
+            --color-antifluidos-purple: #8A2BE2; /* Morado Vibrante */
+            --color-bebe-pink: #FF69B4; /* Rosado Vibrante */
+            --color-cacharreria-gray: #6B7280; /* Gris (oscuro pero vibrante en contraste) */
+            --color-deportiva-red: #FF0000; /* Rojo Vibrante */
+            --color-dotacion-khaki: #B8860B; /* Amarillo Ladrillo/Khaki Vibrante */
+            --color-escolar-blue: #003366; /* Azul similar al de la página (primary blue) */
+            --color-hogar-lilac: #B065FF; /* Lila Vibrante */
+            --color-mujer-teal: #00CED1; /* Teal/Turquesa Vibrante */
         }
         .bg-primary-blue { background-color: var(--color-primary-blue); }
         .text-primary-blue { color: var(--color-primary-blue); }
@@ -115,13 +125,14 @@
         /* Nueva barra lateral de redes sociales para móviles */
         .social-sidebar-mobile {
             position: fixed;
-            right: 10px; /* Un poco alejado del borde */
+            right: 0; /* Totalmente pegado a la orilla derecha */
             top: 50%; /* Centrado verticalmente */
             transform: translateY(-50%); /* Ajuste para centrado vertical perfecto */
             z-index: 998; /* Un poco menos que WhatsApp */
             background-color: var(--color-primary-blue);
             padding: 8px 5px;
-            border-radius: 10px;
+            border-top-left-radius: 10px; /* Bordes redondeados solo a la izquierda */
+            border-bottom-left-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center; /* Centrado horizontal de los íconos */
@@ -186,6 +197,16 @@
         }
         .animate-pin-drop:hover {
             animation: pin-drop 0.8s ease-out;
+        }
+
+        /* Estilos para imágenes de categorías */
+        .category-image {
+            width: 80px; /* Tamaño de la imagen */
+            height: 80px; /* Tamaño de la imagen */
+            object-fit: contain; /* Asegura que la imagen completa sea visible */
+            margin: 0 auto 1rem; /* Centrar y añadir margen inferior */
+            display: block; /* Asegurar que ocupe su propio bloque */
+            border-radius: 8px; /* Ligeramente redondeado para que coincida con el estilo de la tarjeta */
         }
     </style>
 </head>
@@ -257,59 +278,46 @@
     <section id="categorias" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-5xl font-bold text-center text-primary-blue mb-12">Nuestras Líneas de Productos</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8"> <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Antifluidos" alt="Telas Antifluidos" class="w-full h-32 sm:h-48 object-cover"> <div class="p-4 sm:p-6"> <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Antifluidos</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #E0F2F7;">
+                    <img src="antifluidos.jpg" alt="Gota de agua (Antifluidos)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-antifluidos-purple);">Antifluidos</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Bebé+Infantil" alt="Telas Bebé Infantil" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Bebé Infantil</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #FFF0F5;">
+                    <img src="bebe.jpg" alt="Interior de bebé (Bebé Infantil)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-bebe-pink);">Bebé Infantil</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Cacharrería" alt="Cacharrería" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Cacharrería</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #F8F8F8;">
+                    <img src="cacharreria.jpg" alt="Botón (Cacharrería)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-cacharreria-gray);">Cacharrería</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Deportiva" alt="Telas Deportivas" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Deportiva</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #FFF0F0;">
+                    <img src="deportivos.jpg" alt="Pantaloneta (Deportiva)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-deportiva-red);">Deportiva</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Dotación" alt="Telas de Dotación" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Dotación</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #FFFBEB;">
+                    <img src="dotacion.jpg" alt="Camisa de hombre (Dotación)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-dotacion-khaki);">Dotación</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Escolar" alt="Telas Escolares" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Escolar</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #EBF8FF;">
+                    <img src="escolar.jpg" alt="Uniforme escolar de mujer (Escolar)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-escolar-blue);">Escolar</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Hogar" alt="Telas para el Hogar" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Hogar</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #F5F3FF;">
+                    <img src="hogar.jpg" alt="Almohada (Hogar)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-hogar-lilac);">Hogar</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
-                <div class="category-card bg-bg-light rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/400x250/E0F2F7/003366?text=Moda+Mujer" alt="Telas para Mujer" class="w-full h-32 sm:h-48 object-cover">
-                    <div class="p-4 sm:p-6">
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue mb-1">Mujer</h3>
-                        <a href="#" class="mt-3 inline-block text-secondary-aquamarine hover:text-primary-blue font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #E0FFFF;">
+                    <img src="mujer.jpg" alt="Vestido (Mujer)" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-mujer-teal);">Mujer</h3>
+                    <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
             </div>
         </div>
