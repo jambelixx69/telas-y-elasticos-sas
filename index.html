@@ -115,16 +115,17 @@
         /* Nueva barra lateral de redes sociales para móviles */
         .social-sidebar-mobile {
             position: fixed;
-            right: 20px; /* Alineado con el botón de WhatsApp */
-            bottom: 90px; /* Encima del botón de WhatsApp */
+            right: 10px; /* Un poco alejado del borde */
+            top: 50%; /* Centrado verticalmente */
+            transform: translateY(-50%); /* Ajuste para centrado vertical perfecto */
             z-index: 998; /* Un poco menos que WhatsApp */
             background-color: var(--color-primary-blue);
             padding: 8px 5px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centrado horizontal */
-            justify-content: center; /* Centrado vertical si el contenido es más pequeño que el contenedor */
+            align-items: center; /* Centrado horizontal de los íconos */
+            justify-content: center; /* Centrado vertical de los íconos dentro de su contenedor */
             gap: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
