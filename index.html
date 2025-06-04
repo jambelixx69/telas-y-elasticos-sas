@@ -220,20 +220,19 @@
 
         /* Estilos para imágenes de categorías */
         .category-image {
-            width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
-            height: 150px; /* Altura fija para la imagen */
-            object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsión */
-            margin: 0; /* Elimina márgenes extra */
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin: 0;
             display: block;
-            border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+            border-radius: 8px 8px 0 0;
         }
-        /* Ajuste de altura de imagen para pantallas más grandes */
-        @media (min-width: 640px) { /* sm breakpoint */
+        @media (min-width: 640px) {
             .category-image {
                 height: 180px;
             }
         }
-        @media (min-width: 768px) { /* md breakpoint */
+        @media (min-width: 768px) {
             .category-image {
                 height: 200px;
             }
@@ -250,9 +249,9 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para el icono */
-            border-radius: 50%; /* Circular */
-            padding: 5px; /* Espacio alrededor del SVG */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            padding: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .category-animation-icon svg {
