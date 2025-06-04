@@ -45,6 +45,8 @@
             position: relative; /* Necesario para posicionar el icono animado */
             overflow: hidden; /* Para que las animaciones no se salgan de la tarjeta si son grandes */
             min-height: 250px; /* Altura mínima para las tarjetas */
+            /* Añadimos el degradado lineal sutil */
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,1));
         }
         .category-card:hover {
             transform: translateY(-5px) scale(1.02);
@@ -340,12 +342,13 @@
         }
     </style>
 </head>
-<body class="bg-white">
+<body>
 
     <header class="bg-primary-blue text-text-light shadow-md">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
-                <img src="LOGO_INICIAL (1).webp" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg"> </a>
+                <img src="LOGO_INICIAL (1).webp" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg">
+            </a>
 
             <div class="hidden md:flex space-x-6 text-lg font-medium">
                 <a href="#" class="nav-link-underline hover:text-secondary-aquamarine transition duration-300">Inicio</a>
@@ -368,8 +371,10 @@
                 </button>
             </div>
         </nav>
-        <div class="bg-primary-blue py-2 px-4"> <div class="container mx-auto">
-                <div class="relative w-full md:max-w-3xl md:mx-auto"> <input type="text" placeholder="Buscar telas, categorías..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
+        <div class="bg-primary-blue py-2 px-4">
+            <div class="container mx-auto">
+                <div class="relative w-full md:max-w-3xl md:mx-auto">
+                    <input type="text" placeholder="Buscar telas, categorías..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-search text-gray-400"></i>
                     </div>
@@ -391,19 +396,26 @@
         </div>
     </div>
 
-    <section class="relative bg-bg-light py-10 md:py-32 overflow-hidden"> <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between z-10 relative">
-            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0"> <h1 class="text-3xl md:text-6xl font-bold leading-tight text-primary-blue mb-4"> Descubre la <span class="text-secondary-aquamarine">Tela Perfecta</span> para Cada Creación
+    <section class="relative bg-bg-light py-10 md:py-32 overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between z-10 relative">
+            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-6xl font-bold leading-tight text-primary-blue mb-4">
+                    Descubre la <span class="text-secondary-aquamarine">Tela Perfecta</span> para Cada Creación
                 </h1>
-                <p class="text-base md:text-xl text-text-dark mb-6"> En Telas y Elásticos, la calidad y la innovación se tejen en cada fibra. Encuentra la inspiración para tus proyectos.
+                <p class="text-base md:text-xl text-text-dark mb-6">
+                    En Telas y Elásticos, la calidad y la innovación se tejen en cada fibra. Encuentra la inspiración para tus proyectos.
                 </p>
                 <a href="#categorias" class="inline-block bg-secondary-aquamarine text-primary-blue font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
                     Explorar Categorías
                 </a>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <img src="https://placehold.co/500x350/7FFFD4/003366?text=Telas+de+Calidad" alt="Variedad de Telas" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto"> </div>
+                [Image of Telas de Calidad]
+            </div>
         </div>
-        <div class="absolute top-0 left-0 w-32 h-32 bg-primary-blue opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div> <div class="absolute bottom-0 right-0 w-48 h-48 bg-secondary-aquamarine opacity-15 rounded-full translate-x-1/2 -translate-y-1/2"></div> </section>
+        <div class="absolute top-0 left-0 w-32 h-32 bg-primary-blue opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-48 h-48 bg-secondary-aquamarine opacity-15 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+    </section>
 
     <section id="categorias" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4">
@@ -411,7 +423,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
                 <!-- Tarjeta de Categoría: Antifluidos -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #E0F2F7;">
-                    <img src="antifluidos_tarjeta.png" alt="Antifluidos" class="category-image">
+                    [Image of Antifluidos]
                     <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-antifluidos-purple);">Antifluidos</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-drop-fade" style="color: var(--color-antifluidos-purple);">
@@ -422,8 +434,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #FFF0F5;">
-                    <img src="bebe.png" alt="Bebé Infantil" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-bebe-pink);">Bebé Infantil</h3>
+                    [Image of Bebé Infantil]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-bebe-pink);">Bebé Infantil</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-cotton-puff" style="color: var(--color-bebe-pink);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -433,8 +445,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Cacharrería -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #F8F8F8;">
-                    <img src="cacharreria.png" alt="Cacharrería" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-cacharreria-gray);">Cacharrería</h3>
+                    [Image of Cacharrería]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-cacharreria-gray);">Cacharrería</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-rotate-360-front" style="color: var(--color-cacharreria-gray);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -444,8 +456,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Deportiva -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #FFF0F0;">
-                    <img src="deportivos.png" alt="Deportiva" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-deportiva-red);">Deportiva</h3>
+                    [Image of Deportivos]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-deportiva-red);">Deportiva</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-ball-vibrate" style="color: var(--color-deportiva-red);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -455,8 +467,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Dotación -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #FFFBEB;">
-                    <img src="dotacion.png" alt="Dotación" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-dotacion-khaki);">Dotación</h3>
+                    [Image of Dotación]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-dotacion-khaki);">Dotación</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-helmet-spin" style="color: var(--color-dotacion-khaki);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -466,8 +478,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Escolar -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #EBF8FF;">
-                    <img src="Escolar.png" alt="Escolar" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-escolar-blue);">Escolar</h3>
+                    [Image of Escolar]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-escolar-blue);">Escolar</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-pencil-write" style="color: var(--color-escolar-blue);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -477,8 +489,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Hogar -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #F5F3FF;">
-                    <img src="hogar.png" alt="Hogar" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-hogar-lilac);">Hogar</h3>
+                    [Image of Hogar]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-hogar-lilac);">Hogar</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-zig-zag-sew-motion" style="color: var(--color-hogar-lilac);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -488,8 +500,8 @@
                 </div>
                 <!-- Tarjeta de Categoría: Mujer -->
                 <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #E0FFFF;">
-                    <img src="mujer.png" alt="Mujer" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-mujer-teal);">Mujer</h3>
+                    [Image of Mujer]
+                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-mujer-teal);">Mujer</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
                     <div class="category-animation-icon animate-lipstick-paint-motion" style="color: var(--color-mujer-teal);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -550,7 +562,7 @@
                     <p class="text-lg text-text-dark">CALLE 37 # 16-04 LOCAL: 377, Bucaramanga, Colombia</p>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <footer class="bg-primary-blue text-text-light py-10">
