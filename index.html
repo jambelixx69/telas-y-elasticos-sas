@@ -44,6 +44,7 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             position: relative; /* Necesario para posicionar el icono animado */
             overflow: hidden; /* Para que las animaciones no se salgan de la tarjeta si son grandes */
+            min-height: 250px; /* Altura mínima para las tarjetas */
         }
         .category-card:hover {
             transform: translateY(-5px) scale(1.02);
@@ -219,12 +220,23 @@
 
         /* Estilos para imágenes de categorías */
         .category-image {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin: 0 auto 1rem;
+            width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+            height: 150px; /* Altura fija para la imagen */
+            object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsión */
+            margin: 0; /* Elimina márgenes extra */
             display: block;
-            border-radius: 8px;
+            border-radius: 8px 8px 0 0; /* Bordes redondeados solo en la parte superior */
+        }
+        /* Ajuste de altura de imagen para pantallas más grandes */
+        @media (min-width: 640px) { /* sm breakpoint */
+            .category-image {
+                height: 180px;
+            }
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .category-image {
+                height: 200px;
+            }
         }
 
         /* Estilos y animaciones para los iconos animados de las tarjetas */
@@ -238,6 +250,10 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para el icono */
+            border-radius: 50%; /* Circular */
+            padding: 5px; /* Espacio alrededor del SVG */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .category-animation-icon svg {
             width: 100%;
@@ -246,72 +262,82 @@
         }
 
         /* Animaciones específicas */
-        @keyframes fade-out-scale {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-            100% { opacity: 0; transform: scale(0.5); }
+        @keyframes drop-fade {
+            0% { transform: translateY(-20px) scale(0.5); opacity: 0; }
+            50% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { opacity: 0; transform: translateY(20px) scale(0.5); }
         }
-        .animate-fade-out-scale:hover svg {
-            animation: fade-out-scale 1s forwards;
+        .animate-drop-fade:hover svg {
+            animation: drop-fade 1.5s ease-out forwards;
         }
 
-        @keyframes rotate-y-360 {
+        @keyframes cotton-puff {
+            0% { transform: scale(0.5) opacity(0.5); }
+            50% { transform: scale(1.2) opacity(1); }
+            100% { transform: scale(0.5) opacity(0.5); }
+        }
+        .animate-cotton-puff:hover svg {
+            animation: cotton-puff 1.5s ease-in-out infinite;
+        }
+
+        @keyframes rotate-360-front {
             0% { transform: rotateY(0deg); }
             100% { transform: rotateY(360deg); }
         }
-        .animate-rotate-y-360:hover svg {
-            animation: rotate-y-360 1.5s linear infinite;
+        .animate-rotate-360-front:hover svg {
+            animation: rotate-360-front 1.5s linear infinite;
         }
 
-        @keyframes vibrate {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-2px, -2px); }
-            50% { transform: translate(2px, 2px); }
-            75% { transform: translate(-2px, 2px); }
-            100% { transform: translate(2px, -2px); }
+        @keyframes ball-vibrate {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-2px, -2px) rotate(5deg); }
+            50% { transform: translate(2px, 2px) rotate(-5deg); }
+            75% { transform: translate(-2px, 2px) rotate(5deg); }
+            100% { transform: translate(2px, -2px) rotate(-5deg); }
         }
-        .animate-vibrate:hover svg {
-            animation: vibrate 0.2s linear infinite;
+        .animate-ball-vibrate:hover svg {
+            animation: ball-vibrate 0.2s linear infinite;
         }
 
-        @keyframes rotate-z-360 {
+        @keyframes helmet-spin {
             0% { transform: rotateZ(0deg); }
             100% { transform: rotateZ(360deg); }
         }
-        .animate-rotate-z-360:hover svg {
-            animation: rotate-z-360 1.5s linear infinite;
+        .animate-helmet-spin:hover svg {
+            animation: helmet-spin 2s linear infinite;
         }
 
-        @keyframes draw-line {
-            0% { stroke-dashoffset: 100; opacity: 0; }
-            50% { stroke-dashoffset: 0; opacity: 1; }
-            100% { stroke-dashoffset: 100; opacity: 0; }
+        @keyframes pencil-write {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(5px) translateY(-5px) rotate(15deg); }
+            50% { transform: translateX(0) translateY(0) rotate(0deg); }
+            75% { transform: translateX(-5px) translateY(-5px) rotate(-15deg); }
+            100% { transform: translateX(0) translateY(0) rotate(0deg); }
         }
-        .animate-draw-line:hover svg path {
-            animation: draw-line 2s linear infinite;
-            stroke-dasharray: 100;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        @keyframes zig-zag-sew {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(5px); }
-            50% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-            100% { transform: translateX(0); }
-        }
-        .animate-zig-zag-sew:hover svg {
-            animation: zig-zag-sew 0.8s ease-in-out infinite;
+        .animate-pencil-write:hover svg {
+            animation: pencil-write 2s ease-in-out infinite;
         }
 
-        @keyframes lipstick-paint {
-            0% { transform: translateY(0) scaleY(1); }
-            50% { transform: translateY(-5px) scaleY(1.1); }
-            100% { transform: translateY(0) scaleY(1); }
+        @keyframes zig-zag-sew-motion {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(5px) translateY(5px); }
+            50% { transform: translateX(0) translateY(0); }
+            75% { transform: translateX(-5px) translateY(5px); }
+            100% { transform: translateX(0) translateY(0); }
         }
-        .animate-lipstick-paint:hover svg {
-            animation: lipstick-paint 1s ease-in-out infinite;
+        .animate-zig-zag-sew-motion:hover svg {
+            animation: zig-zag-sew-motion 1s ease-in-out infinite;
+        }
+
+        @keyframes lipstick-paint-motion {
+            0% { transform: scale(1) translateY(0); }
+            25% { transform: scale(1.1) translateY(-5px); }
+            50% { transform: scale(1) translateY(0); }
+            75% { transform: scale(1.1) translateY(-5px); }
+            100% { transform: scale(1) translateY(0); }
+        }
+        .animate-lipstick-paint-motion:hover svg {
+            animation: lipstick-paint-motion 1.2s ease-in-out infinite;
         }
     </style>
 </head>
@@ -385,88 +411,88 @@
             <h2 class="text-3xl md:text-5xl font-bold text-center text-primary-blue mb-12">Nuestras Líneas de Productos</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
                 <!-- Tarjeta de Categoría: Antifluidos -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #E0F2F7;">
-                    <img src="antifluidos_tarjeta.png" alt="Antifluidos" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-antifluidos-purple);">Antifluidos</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #E0F2F7;">
+                    <img src="antifluidos_tarjeta.jpg" alt="Antifluidos" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-antifluidos-purple);">Antifluidos</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-fade-out-scale" style="color: var(--color-antifluidos-purple);">
+                    <div class="category-animation-icon animate-drop-fade" style="color: var(--color-antifluidos-purple);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2c-2.97 0-6.78 3.55-6.78 8.16 0 3.66 2.76 6.64 6.78 11.84 4.02-5.2 6.78-8.18 6.78-11.84C18.78 5.55 14.97 2 12 2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #FFF0F5;">
-                    <img src="bebe.jpg" alt="Interior de bebé (Bebé Infantil)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-bebe-pink);">Bebé Infantil</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #FFF0F5;">
+                    <img src="bebe.jpg" alt="Bebé Infantil" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-bebe-pink);">Bebé Infantil</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-fade-out-scale" style="color: var(--color-bebe-pink);">
+                    <div class="category-animation-icon animate-cotton-puff" style="color: var(--color-bebe-pink);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Cacharrería -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #F8F8F8;">
-                    <img src="cacharreria.jpg" alt="Botón (Cacharrería)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-cacharreria-gray);">Cacharrería</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #F8F8F8;">
+                    <img src="cacharreria.jpg" alt="Cacharrería" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-cacharreria-gray);">Cacharrería</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-rotate-y-360" style="color: var(--color-cacharreria-gray);">
+                    <div class="category-animation-icon animate-rotate-360-front" style="color: var(--color-cacharreria-gray);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Deportiva -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #FFF0F0;">
-                    <img src="deportivos.jpg" alt="Pantaloneta (Deportiva)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-deportiva-red);">Deportiva</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #FFF0F0;">
+                    <img src="deportivos.jpg" alt="Deportiva" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-deportiva-red);">Deportiva</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-vibrate" style="color: var(--color-deportiva-red);">
+                    <div class="category-animation-icon animate-ball-vibrate" style="color: var(--color-deportiva-red);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Dotación -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #FFFBEB;">
-                    <img src="dotacion.jpg" alt="Camisa de hombre (Dotación)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-dotacion-khaki);">Dotación</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #FFFBEB;">
+                    <img src="dotacion.jpg" alt="Dotación" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-dotacion-khaki);">Dotación</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-rotate-z-360" style="color: var(--color-dotacion-khaki);">
+                    <div class="category-animation-icon animate-helmet-spin" style="color: var(--color-dotacion-khaki);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Escolar -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #EBF8FF;">
-                    <img src="escolar.jpg" alt="Uniforme escolar de mujer (Escolar)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-escolar-blue);">Escolar</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #EBF8FF;">
+                    <img src="Escolar.jpg" alt="Escolar" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-escolar-blue);">Escolar</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-draw-line" style="color: var(--color-escolar-blue);">
+                    <div class="category-animation-icon animate-pencil-write" style="color: var(--color-escolar-blue);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Hogar -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #F5F3FF;">
-                    <img src="hogar.jpg" alt="Almohada (Hogar)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-hogar-lilac);">Hogar</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #F5F3FF;">
+                    <img src="hogar.jpg" alt="Hogar" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-hogar-lilac);">Hogar</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-zig-zag-sew" style="color: var(--color-hogar-lilac);">
+                    <div class="category-animation-icon animate-zig-zag-sew-motion" style="color: var(--color-hogar-lilac);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
                     </div>
                 </div>
                 <!-- Tarjeta de Categoría: Mujer -->
-                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="background-color: #E0FFFF;">
-                    <img src="mujer.jpg" alt="Vestido (Mujer)" class="category-image">
-                    <h3 class="text-lg sm:text-xl font-semibold" style="color: var(--color-mujer-teal);">Mujer</h3>
+                <div class="category-card rounded-xl shadow-lg overflow-hidden flex flex-col items-center justify-start p-4 sm:p-6 text-center" style="background-color: #E0FFFF;">
+                    <img src="mujer.jpg" alt="Mujer" class="category-image">
+                    <h3 class="text-lg sm:text-xl font-semibold mt-4" style="color: var(--color-mujer-teal);">Mujer</h3>
                     <a href="#" class="mt-3 inline-block text-primary-blue hover:text-secondary-aquamarine font-medium transition duration-300 text-sm">Ver Productos <i class="fas fa-arrow-right ml-1"></i></a>
-                    <div class="category-animation-icon animate-lipstick-paint" style="color: var(--color-mujer-teal);">
+                    <div class="category-animation-icon animate-lipstick-paint-motion" style="color: var(--color-mujer-teal);">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
                         </svg>
