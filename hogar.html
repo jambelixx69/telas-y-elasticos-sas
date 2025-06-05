@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telas y Elásticos S.A.S. - Hogar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --color-primary-blue: #003366;
+            --color-secondary-aquamarine: #7FFFD4;
+            --color-text-dark: #333333;
+            --color-text-light: #f9fafb;
+            --color-hogar-lilac: #B065FF; /* Color específico de Hogar */
+        }
+        .bg-primary-blue { background-color: var(--color-primary-blue); }
+        .text-primary-blue { color: var(--color-primary-blue); }
+        .bg-secondary-aquamarine { background-color: var(--color-secondary-aquamarine); }
+        .text-secondary-aquamarine { color: var(--color-secondary-aquamarine); }
+        .text-text-dark { color: var(--color-text-dark); }
+        .text-text-light { color: var(--color-text-light); }
+        body { font-family: 'Inter', sans-serif; color: var(--color-text-dark); }
+
+        /* Estilos generales para el menú y barra lateral (copiados de index.html) */
+        .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 1000; display: flex; justify-content: flex-end; visibility: hidden; opacity: 0; transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+        .mobile-menu-overlay.active { visibility: visible; opacity: 1; }
+        .mobile-menu-content { width: 70%; max-width: 300px; background-color: var(--color-primary-blue); transform: translateX(100%); transition: transform 0.3s ease-in-out; padding: 20px; box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: flex-start; }
+        .mobile-menu-content a { padding: 10px 0; width: 100%; text-align: left; }
+        .mobile-menu-overlay.active .mobile-menu-content { transform: translateX(0); }
+        .social-sidebar { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 999; background-color: var(--color-primary-blue); padding: 10px 5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; box-shadow: -3px 0 10px rgba(0,0,0,0.2); }
+        @media (max-width: 767px) { .social-sidebar { display: none; } }
+        .social-sidebar-mobile { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 998; background-color: var(--color-primary-blue); padding: 8px 5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        @media (min-width: 768px) { .social-sidebar-mobile { display: none; } }
+        .hover\:text-facebook-original:hover { color: #3b5998; }
+        .hover\:text-instagram-original:hover { color: #C13584; }
+        .hover\:text-youtube-original:hover { color: #FF0000; }
+        .bg-whatsapp { background-color: #25D366; }
+        .nav-link-underline { position: relative; display: inline-block; padding-bottom: 5px; }
+        .nav-link-underline::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: var(--color-secondary-aquamarine); transition: width 0.3s ease-in-out; }
+        .nav-link-underline:hover::after { width: 100%; }
+        .mobile-menu-content .nav-link-underline::after { bottom: 5px; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="bg-primary-blue text-text-light shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="LOGO_INICIAL (1).webp" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg">
+            </a>
+            <div class="hidden md:flex space-x-6 text-lg font-medium">
+                <a href="index.html" class="hover:text-secondary-aquamarine transition duration-300">Inicio</a>
+                <a href="index.html#categorias" class="hover:text-secondary-aquamarine transition duration-300">Categorías</a>
+                <a href="index.html#nosotros" class="hover:text-secondary-aquamarine transition duration-300">Nosotros</a>
+                <a href="index.html#contacto" class="hover:text-secondary-aquamarine transition duration-300">Contacto</a>
+                <a href="index.html#faq" class="hover:text-secondary-aquamarine transition duration-300">FAQ</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-text-light hover:text-secondary-aquamarine transition duration-300">
+                    <i class="fas fa-user text-xl"></i>
+                </button>
+                <button class="text-text-light hover:text-secondary-aquamarine transition duration-300 relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-secondary-aquamarine text-primary-blue text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-text-light hover:text-secondary-aquamarine transition duration-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="bg-primary-blue py-2 px-4">
+            <div class="container mx-auto">
+                <div class="relative w-full md:max-w-3xl md:mx-auto">
+                    <input type="text" placeholder="Buscar telas..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div id="mobile-menu-content" class="mobile-menu-content">
+            <button id="close-mobile-menu" class="self-end text-text-light text-2xl hover:text-secondary-aquamarine mb-6">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="index.html" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Inicio</a>
+            <a href="index.html#categorias" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Categorías</a>
+            <a href="index.html#nosotros" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Nosotros</a>
+            <a href="index.html#contacto" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Contacto</a>
+            <a href="index.html#faq" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">FAQ</a>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary-blue mb-6" style="color: var(--color-hogar-lilac);">Línea Hogar</h1>
+        <p class="text-lg text-text-dark mb-8">
+            Transforma cada espacio de tu hogar con nuestra exclusiva selección de telas. Desde suaves linos para cortinas y manteles, hasta algodones resistentes para tapicería y opciones confortables para sábanas y cojines. Crea ambientes únicos y acogedores.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Producto de ejemplo 1 para Hogar -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://placehold.co/400x250/B065FF/FFFFFF?text=Tela+Para+Cortinas" alt="Tela para Cortinas" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-1">Lino para Cortinas Deluxe</h3>
+                    <p class="text-text-dark text-sm">Caída elegante y translúcida, ideal para dar luminosidad a tus espacios.</p>
+                    <button class="bg-secondary-aquamarine text-primary-blue font-bold py-2 px-4 rounded-full mt-2 hover:bg-opacity-90 transition duration-300">Ver Detalles</button>
+                </div>
+            </div>
+            <!-- Producto de ejemplo 2 para Hogar -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://placehold.co/400x250/B065FF/FFFFFF?text=Tela+Tapiceria" alt="Tela Tapicería" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-primary-blue mb-1">Chenille Ultra Resistente</h3>
+                    <p class="text-text-dark text-sm">Perfecto para retapizar muebles, combina durabilidad y suavidad al tacto.</p>
+                    <button class="bg-secondary-aquamarine text-primary-blue font-bold py-2 px-4 rounded-full mt-2 hover:bg-opacity-90 transition duration-300">Ver Detalles</button>
+                </div>
+            </div>
+            <!-- Añade más productos aquí -->
+        </div>
+    </main>
+
+    <footer class="bg-primary-blue text-text-light py-10">
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
+            <div class="mb-2">
+                <h3 class="text-xl font-bold">Telas y Elásticos S.A.S.</h3>
+            </div>
+            <div>
+                <p class="text-sm">© 2025 Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573187126104" target="_blank" class="whatsapp-float bg-whatsapp text-white rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <div class="social-sidebar hidden md:flex">
+        <a href="https://www.facebook.com/profile.php?id=100063649790074" target="_blank" class="text-gray-300 hover:text-facebook-original transition duration-300 text-2xl">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/telasyelasticos/" target="_blank" class="text-gray-300 hover:text-instagram-original transition duration-300 text-2xl">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" target="_blank" class="text-gray-300 hover:text-youtube-original transition duration-300 text-2xl">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+
+    <div class="social-sidebar-mobile md:hidden">
+        <a href="https://www.facebook.com/profile.php?id=100063649790074" target="_blank" class="text-gray-300 hover:text-facebook-original transition duration-300 text-xl">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/telasyelasticos/" target="_blank" class="text-gray-300 hover:text-instagram-original transition duration-300 text-xl">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" target="_blank" class="text-gray-300 hover:text-youtube-original transition duration-300 text-xl">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuContent = document.getElementById('mobile-menu-content');
+
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenuOverlay.classList.add('active');
+                });
+            }
+
+            if (closeMobileMenuButton) {
+                closeMobileMenuButton.addEventListener('click', () => {
+                    mobileMenuOverlay.classList.remove('active');
+                });
+            }
+
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', (event) => {
+                    if (event.target === mobileMenuOverlay) {
+                        mobileMenuOverlay.classList.remove('active');
+                    }
+                });
+            }
+
+            if (mobileMenuContent) {
+                const mobileMenuLinks = mobileMenuContent.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuOverlay.classList.remove('active');
+                    });
+                });
+            }
+
+            const handleResize = () => {
+                const desktopNav = document.querySelector('header nav > div.hidden.md\\:flex');
+                const mobileMenuBtn = document.getElementById('mobile-menu-button');
+                if (desktopNav && mobileMenuBtn) {
+                    if (window.innerWidth < 768) {
+                        desktopNav.classList.add('hidden');
+                        mobileMenuBtn.classList.remove('hidden');
+                    } else {
+                        desktopNav.classList.remove('hidden');
+                        mobileMenuBtn.classList.add('hidden');
+                        if (mobileMenuOverlay) {
+                            mobileMenuOverlay.classList.remove('active');
+                        }
+                    }
+                }
+            };
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        });
+    </script>
+</body>
+</html>
