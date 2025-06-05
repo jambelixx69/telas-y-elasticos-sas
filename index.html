@@ -6,7 +6,8 @@
     <title>Telas y Elásticos S.A.S. - Innovación en Telas</title>
     <!-- Carga de Tailwind CSS para un diseño moderno y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fuente Montserrat desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Carga de Font Awesome para iconos de redes sociales y carrito -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -36,7 +37,7 @@
         .text-text-light { color: var(--color-text-light); }
         .bg-bg-light { background-color: var(--color-bg-light); }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Fuente cambiada a Montserrat */
             color: var(--color-text-dark);
         }
         /* Estilos para el efecto de hover en las tarjetas de categoría */
@@ -316,11 +317,33 @@
             border-radius: 0.375rem; /* rounded-md */
             transition: background-color 0.3s, transform 0.2s;
             white-space: nowrap; /* Evita que el texto se rompa */
+            position: relative; /* Para el pseudo-elemento */
+            overflow: hidden; /* Para contener la animación */
+            z-index: 1; /* Asegura que el texto esté sobre el fondo */
         }
+        /* Estilo para las pestañas */
+        .top-product-lines-bar nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.05); /* Fondo muy sutil para la pestaña */
+            border-radius: 0.375rem;
+            z-index: -1; /* Detrás del texto */
+            transform: scaleX(0); /* Oculto por defecto */
+            transform-origin: left;
+            transition: transform 0.3s ease-out;
+        }
+        .top-product-lines-bar nav a:hover::before {
+            transform: scaleX(1); /* Muestra el fondo de la pestaña al pasar el cursor */
+        }
+
         .top-product-lines-bar nav a:hover {
             transform: translateY(-2px);
         }
-        /* Colores específicos para la barra superior */
+        /* Colores específicos para la barra superior (texto estático) */
         .top-product-lines-bar .antifluidos-link { color: var(--color-antifluidos-purple); }
         .top-product-lines-bar .bebe-infantil-link { color: var(--color-bebe-pink); }
         .top-product-lines-bar .cacharreria-link { color: var(--color-cacharreria-gray); }
@@ -332,7 +355,7 @@
 
         /* Estilos para la barra de líneas de productos en el footer */
         .footer-product-lines-bar {
-            background-color: var(--color-primary-blue); /* Fondo igual que el footer */
+            background-color: #333333; /* Fondo gris oscuro que contrasta */
             padding: 1rem 0;
             border-top: 1px solid rgba(255,255,255,0.1); /* Separador sutil */
         }
@@ -494,7 +517,7 @@
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <!-- Imagen Hero actualizada -->
-                <img src="Imagehero.png" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
+                <img src="Imagehero.jpg" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
             </div>
         </div>
         <div class="absolute top-0 left-0 w-32 h-32 bg-primary-blue opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
