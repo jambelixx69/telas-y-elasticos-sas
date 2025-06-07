@@ -302,37 +302,58 @@
 
         /* Contenido superpuesto sobre la imagen de la tarjeta */
         .category-content-overlay {
-            position: relative; /* Asegura que el contenido esté sobre la imagen */
-            z-index: 2; /* Por encima de la imagen */
+            position: absolute; /* Cambiado a absolute para cubrir la imagen */
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%; /* Ocupa toda la altura de la tarjeta */
+            z-index: 2; /* Por encima de la imagen */
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* Alinea el contenido hacia abajo */
             align-items: center; /* Centra horizontalmente el contenido */
             text-align: center;
             padding: 1.5rem 1rem 1rem; /* Espaciado interno */
-            color: var(--color-text-light); /* Color del texto por defecto (blanco) */
             border-radius: inherit; /* Hereda el redondeo de la tarjeta */
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%); /* Degradado para legibilidad */
+            /* Degradado muy sutil, va de transparente a un poco oscuro abajo */
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%); /* Fondo degradado suave */
         }
         .category-content-overlay h3 {
             margin-top: 0; /* Reiniciar margin-top */
             margin-bottom: 0.5rem; /* Espacio debajo del título */
             font-weight: 600; /* Semibold */
             color: var(--color-text-light); /* Color inicial blanco para el título */
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* Sombra para mejor lectura */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* Sombra para mejor lectura */
             transition: color 0.3s ease-in-out; /* Transición suave de color */
         }
-        /* Color del título en hover para cada categoría */
+        .category-content-overlay .category-link-text { /* Estilo para "Ver Productos" */
+            color: var(--color-text-light);
+            font-weight: 500;
+            margin-top: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Colores del texto y línea en hover para los títulos de categoría */
         .category-card-link:hover .category-content-overlay h3.antifluidos-title { color: var(--color-antifluidos-purple); }
         .category-card-link:hover .category-content-overlay h3.bebe-infantil-title { color: var(--color-bebe-pink); }
         .category-card-link:hover .category-content-overlay h3.cacharreria-title { color: var(--color-cacharreria-gray); }
         .category-card-link:hover .category-content-overlay h3.deportiva-title { color: var(--color-deportiva-red); }
         .category-card-link:hover .category-content-overlay h3.dotacion-title { color: var(--color-dotacion-khaki); }
-        .category-card-link:hover .category-escolar-title { color: var(--color-escolar-blue); } /* Para escolar */
+        .category-card-link:hover .category-content-overlay h3.escolar-title { color: var(--color-escolar-blue); }
         .category-card-link:hover .category-content-overlay h3.hogar-title { color: var(--color-hogar-lilac); }
         .category-card-link:hover .category-content-overlay h3.mujer-title { color: var(--color-mujer-teal); }
+
+        /* Colores del texto en hover para "Ver Productos" */
+        .category-card-link:hover .category-content-overlay .antifluidos-link-text { color: var(--color-antifluidos-purple); }
+        .category-card-link:hover .category-content-overlay .bebe-infantil-link-text { color: var(--color-bebe-pink); }
+        .category-card-link:hover .category-content-overlay .cacharreria-link-text { color: var(--color-cacharreria-gray); }
+        .category-card-link:hover .category-content-overlay .deportiva-link-text { color: var(--color-deportiva-red); }
+        .category-card-link:hover .category-content-overlay .dotacion-link-text { color: var(--color-dotacion-khaki); }
+        .category-card-link:hover .category-content-overlay .escolar-link-text { color: var(--color-escolar-blue); }
+        .category-card-link:hover .category-content-overlay .hogar-link-text { color: var(--color-hogar-lilac); }
+        .category-card-link:hover .category-content-overlay .mujer-link-text { color: var(--color-mujer-teal); }
+
 
         /* Estilos para la barra superior de líneas de productos */
         .top-product-lines-bar {
@@ -368,7 +389,7 @@
 
         /* Estilos para la barra de líneas de productos en el footer */
         .footer-product-lines-bar {
-            background-color: #333333; /* Fondo gris oscuro que contrasta */
+            background-color: #2D3748; /* Fondo gris oscuro personalizado */
             padding: 1rem 0;
             border-top: 1px solid rgba(255,255,255,0.1); /* Separador sutil */
         }
@@ -377,11 +398,13 @@
             font-size: 0.85rem;
             font-weight: 400;
             color: #d1d5db; /* gray-300 de Tailwind, color base */
-            transition: color 0.3s, transform 0.2s;
+            border-radius: 0.375rem; /* Bordes redondeados */
+            transition: color 0.3s, background-color 0.3s, transform 0.2s; /* Transición para color y fondo */
             white-space: nowrap; /* Evita que el texto se rompa */
         }
         .footer-product-lines-bar nav a:hover {
             transform: translateY(-2px);
+            background-color: #4A5568; /* Fondo gris un poco más claro en hover */
         }
         /* Colores en hover para la barra del footer */
         .footer-product-lines-bar .antifluidos-link:hover { color: var(--color-antifluidos-purple); }
@@ -533,8 +556,7 @@
                 <img src="Imagehero.jpg" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
             </div>
         </div>
-        <div class="absolute top-0 left-0 w-32 h-32 bg-primary-blue opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-48 h-48 bg-secondary-aquamarine opacity-15 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+        <!-- Círculos decorativos eliminados de aquí -->
     </section>
 
     <section id="categorias" class="py-16 md:py-24 bg-white">
@@ -543,73 +565,81 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
                 <!-- Tarjeta de Categoría: Antifluidos -->
                 <a href="antifluidos.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #E0F2F7;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="antifluidos2.png" alt="Antifluidos" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold antifluidos-title">Antifluidos</h3>
+                            <span class="category-link-text antifluidos-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
                 <a href="bebe-infantil.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #FFF0F5;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="bebe2.png" alt="Bebé Infantil" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold bebe-infantil-title">Bebé Infantil</h3>
+                            <span class="category-link-text bebe-infantil-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Cacharrería -->
                 <a href="cacharreria.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #F8F8F8;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="boton2.jpg" alt="Cacharrería" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold cacharreria-title">Cacharrería</h3>
+                            <span class="category-link-text cacharreria-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Deportiva -->
                 <a href="deportiva.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #FFF0F0;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="deportivos2.png" alt="Deportiva" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold deportiva-title">Deportiva</h3>
+                            <span class="category-link-text deportiva-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Dotación -->
                 <a href="dotacion.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #FFFBEB;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="dotacion2.png" alt="Dotación" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold dotacion-title">Dotación</h3>
+                            <span class="category-link-text dotacion-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Escolar -->
                 <a href="Escolar.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #EBF8FF;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="escolar2.png" alt="Escolar" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold escolar-title">Escolar</h3>
+                            <span class="category-link-text escolar-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Hogar -->
                 <a href="hogar.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #F5F3FF;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="hogar2.png" alt="Hogar" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold hogar-title">Hogar</h3>
+                            <span class="category-link-text hogar-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
                 <!-- Tarjeta de Categoría: Mujer -->
                 <a href="mujer.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center" style="background-color: #E0FFFF;">
+                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
                         <img src="mujer2.png" alt="Mujer" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold mujer-title">Mujer</h3>
+                            <span class="category-link-text mujer-link-text">Ver Productos <i class="fas fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
                 </a>
