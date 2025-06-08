@@ -232,21 +232,22 @@
             animation: pin-drop 0.8s ease-out;
         }
 
-        /* Estilos para las tarjetas de categorías (video) */
-        .category-video {
+        /* Estilos para las tarjetas de categorías (imagen) */
+        .category-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que el video cubra el área */
+            object-fit: cover; /* Asegura que la imagen cubra el área */
             z-index: 1;
             border-radius: inherit;
             filter: grayscale(100%); /* Blanco y negro por defecto */
-            transition: filter 0.5s ease-in-out; /* Transición para color */
+            transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out; /* Transición para color y zoom */
         }
-        .category-card:hover .category-video {
+        .category-card:hover .category-image {
             filter: grayscale(0%); /* Color al pasar el cursor */
+            transform: scale(1.05); /* Leve zoom */
         }
 
         /* Oculta los iconos animados de las categorías */
@@ -429,7 +430,7 @@
     <header class="bg-primary-blue text-text-light shadow-md">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
-                <img src="LOGO_INICIAL (1).webp" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg">
+                <img src="isotipo1.jpg" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg">
             </a>
 
             <div class="hidden md:flex space-x-6 text-lg font-medium">
@@ -561,10 +562,7 @@
                 <!-- Tarjeta de Categoría: Antifluidos -->
                 <a href="antifluidos.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center"> <!-- rounded-none para pegar -->
-                        <video class="category-video" muted playsinline>
-                            <source src="antifluidos.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="antifluidos2.png" alt="Antifluidos" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold antifluidos-title">Antifluidos</h3>
                         </div>
@@ -573,10 +571,7 @@
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
                 <a href="bebe-infantil.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="bebe.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="bebe2.png" alt="Bebé Infantil" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold bebe-infantil-title">Bebé Infantil</h3>
                         </div>
@@ -585,10 +580,7 @@
                 <!-- Tarjeta de Categoría: Cacharrería -->
                 <a href="cacharreria.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="cacharreria.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="boton2.jpg" alt="Cacharrería" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold cacharreria-title">Cacharrería</h3>
                         </div>
@@ -597,10 +589,7 @@
                 <!-- Tarjeta de Categoría: Deportiva -->
                 <a href="deportiva.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="deportiva.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="deportivos2.png" alt="Deportiva" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold deportiva-title">Deportiva</h3>
                         </div>
@@ -609,10 +598,7 @@
                 <!-- Tarjeta de Categoría: Dotación -->
                 <a href="dotacion.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="dotacion.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="dotacion2.png" alt="Dotación" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold dotacion-title">Dotación</h3>
                         </div>
@@ -621,10 +607,7 @@
                 <!-- Tarjeta de Categoría: Escolar -->
                 <a href="Escolar.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="escolar.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="escolar2.png" alt="Escolar" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold escolar-title">Escolar</h3>
                         </div>
@@ -633,10 +616,7 @@
                 <!-- Tarjeta de Categoría: Hogar -->
                 <a href="hogar.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="hogar.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="hogar2.png" alt="Hogar" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold hogar-title">Hogar</h3>
                         </div>
@@ -645,10 +625,7 @@
                 <!-- Tarjeta de Categoría: Mujer -->
                 <a href="mujer.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline>
-                            <source src="mujer.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
+                        <img src="mujer2.png" alt="Mujer" class="category-image">
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold mujer-title">Mujer</h3>
                         </div>
