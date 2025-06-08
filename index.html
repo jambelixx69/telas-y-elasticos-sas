@@ -60,7 +60,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
         }
         .category-card:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-5px) scale(1.02); /* Movimiento y zoom leve */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         /* Estilo para el botón flotante de WhatsApp */
@@ -232,20 +232,20 @@
             animation: pin-drop 0.8s ease-out;
         }
 
-        /* Estilos para las tarjetas de categorías (imagen) */
-        .category-image {
+        /* Estilos para las tarjetas de categorías (video) */
+        .category-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que la imagen cubra el área */
+            object-fit: cover; /* Asegura que el video cubra el área */
             z-index: 1;
             border-radius: inherit;
             filter: grayscale(100%); /* Blanco y negro por defecto */
             transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out; /* Transición para color y zoom */
         }
-        .category-card:hover .category-image {
+        .category-card:hover .category-video {
             filter: grayscale(0%); /* Color al pasar el cursor */
             transform: scale(1.05); /* Leve zoom */
         }
@@ -362,36 +362,10 @@
         .category-card-link:hover .category-content-overlay .mujer-link-text { color: var(--color-mujer-teal); }
 
 
-        /* Estilos para la barra superior de líneas de productos (pestañas) */
-        .top-product-lines-bar {
-            background-color: var(--color-primary-blue);
-            padding: 0.5rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .top-product-lines-bar nav a {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border-radius: 0.375rem; /* rounded-md */
-            white-space: nowrap; /* Evita que el texto se rompa */
-            position: relative;
-            z-index: 1; /* Asegura que el texto esté sobre el fondo */
-            color: var(--color-text-light); /* Color inicial blanco/gris claro */
-            border-bottom: 1px solid rgba(255,255,255,0.2); /* Línea inferior fija sutil */
-            transition: color 0.3s, border-color 0.3s, transform 0.2s;
-        }
-        .top-product-lines-bar nav a:hover {
-            transform: translateY(-2px);
-        }
-        /* Colores específicos para el texto al pasar el cursor y la línea inferior */
-        .top-product-lines-bar .antifluidos-link:hover { color: var(--color-antifluidos-purple); border-color: var(--color-antifluidos-purple); }
-        .top-product-lines-bar .bebe-infantil-link:hover { color: var(--color-bebe-pink); border-color: var(--color-bebe-pink); }
-        .top-product-lines-bar .cacharreria-link:hover { color: var(--color-cacharreria-gray); border-color: var(--color-cacharreria-gray); }
-        .top-product-lines-bar .deportiva-link:hover { color: var(--color-deportiva-red); border-color: var(--color-deportiva-red); }
-        .top-product-lines-bar .dotacion-link:hover { color: var(--color-dotacion-khaki); border-color: var(--color-dotacion-khaki); }
-        .top-product-lines-bar .escolar-link:hover { color: var(--color-escolar-blue); border-color: var(--color-escolar-blue); }
-        .top-product-lines-bar .hogar-link:hover { color: var(--color-hogar-lilac); border-color: var(--color-hogar-lilac); }
-        .top-product-lines-bar .mujer-link:hover { color: var(--color-mujer-teal); border-color: var(--color-mujer-teal); }
+        /* Estilos para la barra superior de líneas de productos (eliminada) */
+        /* .top-product-lines-bar { ... } */
+        /* .top-product-lines-bar nav a { ... } */
+
 
         /* Estilos para la barra de líneas de productos en el footer */
         .footer-product-lines-bar {
@@ -562,7 +536,10 @@
                 <!-- Tarjeta de Categoría: Antifluidos -->
                 <a href="antifluidos.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center"> <!-- rounded-none para pegar -->
-                        <img src="antifluidos2.png" alt="Antifluidos" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="antifluidos.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold antifluidos-title">Antifluidos</h3>
                         </div>
@@ -571,7 +548,10 @@
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
                 <a href="bebe-infantil.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="bebe2.png" alt="Bebé Infantil" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="bebe.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold bebe-infantil-title">Bebé Infantil</h3>
                         </div>
@@ -580,7 +560,10 @@
                 <!-- Tarjeta de Categoría: Cacharrería -->
                 <a href="cacharreria.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="boton2.jpg" alt="Cacharrería" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="cacharreria.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold cacharreria-title">Cacharrería</h3>
                         </div>
@@ -589,7 +572,10 @@
                 <!-- Tarjeta de Categoría: Deportiva -->
                 <a href="deportiva.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="deportivos2.png" alt="Deportiva" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="deportiva.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold deportiva-title">Deportiva</h3>
                         </div>
@@ -598,7 +584,10 @@
                 <!-- Tarjeta de Categoría: Dotación -->
                 <a href="dotacion.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="dotacion2.png" alt="Dotación" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="dotacion.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold dotacion-title">Dotación</h3>
                         </div>
@@ -607,7 +596,10 @@
                 <!-- Tarjeta de Categoría: Escolar -->
                 <a href="Escolar.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="escolar2.png" alt="Escolar" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="escolar.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold escolar-title">Escolar</h3>
                         </div>
@@ -616,7 +608,10 @@
                 <!-- Tarjeta de Categoría: Hogar -->
                 <a href="hogar.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="hogar2.png" alt="Hogar" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="hogar.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold hogar-title">Hogar</h3>
                         </div>
@@ -625,7 +620,10 @@
                 <!-- Tarjeta de Categoría: Mujer -->
                 <a href="mujer.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <img src="mujer2.png" alt="Mujer" class="category-image">
+                        <video class="category-video" muted playsinline>
+                            <source src="mujer.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
                         <div class="category-content-overlay">
                             <h3 class="text-lg sm:text-xl font-semibold mujer-title">Mujer</h3>
                         </div>
