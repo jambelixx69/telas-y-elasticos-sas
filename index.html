@@ -242,6 +242,11 @@
             object-fit: cover; /* Asegura que el video cubra el área */
             z-index: 1;
             border-radius: inherit;
+            filter: grayscale(100%); /* Blanco y negro por defecto */
+            transition: filter 0.5s ease-in-out; /* Transición para color */
+        }
+        .category-card:hover .category-video {
+            filter: grayscale(0%); /* Color al pasar el cursor */
         }
 
         /* Oculta los iconos animados de las categorías */
@@ -317,14 +322,14 @@
             padding: 1.5rem 1rem 1rem;
             border-radius: inherit;
             /* Degradado muy sutil para legibilidad sobre el video */
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%); /* Degradado para legibilidad del texto */
         }
         .category-content-overlay h3 {
             margin-top: 0;
             margin-bottom: 0.5rem;
             font-weight: 600;
             color: var(--color-text-light); /* Color inicial blanco para el título */
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* Sombra para mejor lectura */
             transition: color 0.3s ease-in-out;
         }
         .category-content-overlay .category-link-text {
@@ -346,7 +351,7 @@
         .category-card-link:hover .category-content-overlay h3.mujer-title { color: var(--color-mujer-teal); }
 
         /* Colores del texto en hover para "Ver Productos" */
-        .category-card-link:hover .category-content-overlay .antifluidos2-link-text { color: var(--color-antifluidos-purple); }
+        .category-card-link:hover .category-content-overlay .antifluidos-link-text { color: var(--color-antifluidos-purple); }
         .category-card-link:hover .category-content-overlay .bebe-infantil-link-text { color: var(--color-bebe-pink); }
         .category-card-link:hover .category-content-overlay .cacharreria-link-text { color: var(--color-cacharreria-gray); }
         .category-card-link:hover .category-content-overlay .deportiva-link-text { color: var(--color-deportiva-red); }
@@ -422,7 +427,7 @@
     <div class="top-product-lines-bar hidden md:block"> <!-- Oculta en móvil -->
         <div class="container mx-auto px-4">
             <nav class="flex justify-center items-center flex-wrap gap-x-6 gap-y-2">
-                <a href="antifluidos2.html" class="antifluidos-link">Antifluidos</a>
+                <a href="antifluidos.html" class="antifluidos-link">Antifluidos</a>
                 <a href="bebe-infantil.html" class="bebe-infantil-link">Bebé Infantil</a>
                 <a href="cacharreria.html" class="cacharreria-link">Cacharrería</a>
                 <a href="deportiva.html" class="deportiva-link">Deportiva</a>
@@ -449,6 +454,9 @@
             </div>
 
             <div class="flex items-center space-x-4">
+                <button id="search-icon-button" class="text-text-light hover:text-secondary-aquamarine transition duration-300">
+                    <i class="fas fa-search text-xl"></i>
+                </button>
                 <button id="user-icon-button" class="text-text-light hover:text-secondary-aquamarine transition duration-300">
                     <i class="fas fa-user text-xl"></i>
                 </button>
@@ -461,7 +469,8 @@
                 </button>
             </div>
         </nav>
-        <div class="bg-primary-blue py-2 px-4">
+        <!-- Barra de Búsqueda Desplegable (oculta por defecto) -->
+        <div id="search-bar-container" class="bg-primary-blue py-2 px-4 hidden">
             <div class="container mx-auto">
                 <div class="relative w-full md:max-w-3xl md:mx-auto">
                     <input type="text" placeholder="Buscar telas, categorías..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
@@ -553,7 +562,7 @@
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <!-- Imagen Hero actualizada -->
-                <img src="hero2.png" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
+                <img src="hero.png" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
             </div>
         </div>
     </section>
@@ -561,10 +570,10 @@
     <section id="categorias" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-5xl font-bold text-center text-primary-blue mb-12">Nuestras Líneas de Productos</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-0"> <!-- gap-0 para que estén pegadas -->
                 <!-- Tarjeta de Categoría: Antifluidos -->
-                <a href="antifluidos2.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                <a href="antifluidos.html" class="category-card-link">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center"> <!-- rounded-none para pegar -->
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="antifluidos.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -577,7 +586,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
                 <a href="bebe-infantil.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="bebe.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -590,7 +599,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Cacharrería -->
                 <a href="cacharreria.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="cacharreria.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -603,7 +612,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Deportiva -->
                 <a href="deportiva.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="deportiva.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -616,7 +625,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Dotación -->
                 <a href="dotacion.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="dotacion.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -629,7 +638,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Escolar -->
                 <a href="Escolar.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="escolar.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -642,7 +651,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Hogar -->
                 <a href="hogar.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="hogar.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -655,7 +664,7 @@
                 </a>
                 <!-- Tarjeta de Categoría: Mujer -->
                 <a href="mujer.html" class="category-card-link">
-                    <div class="category-card rounded-xl shadow-lg flex flex-col items-center justify-start text-center">
+                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
                         <video class="category-video" autoplay loop muted playsinline>
                             <source src="mujer.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
@@ -734,7 +743,7 @@
         <!-- Barra de Líneas de Productos en el Footer -->
         <div class="footer-product-lines-bar w-full mt-8">
             <nav class="flex justify-center items-center flex-wrap gap-x-4 gap-y-2 px-4">
-                <a href="antifluidos2.html" class="antifluidos-link hover:text-antifluidos-purple">Antifluidos</a>
+                <a href="antifluidos.html" class="antifluidos-link hover:text-antifluidos-purple">Antifluidos</a>
                 <a href="bebe-infantil.html" class="bebe-infantil-link hover:text-bebe-pink">Bebé Infantil</a>
                 <a href="cacharreria.html" class="cacharreria-link hover:text-cacharreria-gray">Cacharrería</a>
                 <a href="deportiva.html" class="deportiva-link hover:text-deportiva-red">Deportiva</a>
@@ -789,6 +798,16 @@
             const cartIconButton = document.getElementById('cart-icon-button');
             const cartModalOverlay = document.getElementById('cart-modal-overlay');
             const cartModalCloseButton = document.getElementById('cart-modal-close');
+
+            // --- Lógica de la barra de búsqueda ---
+            const searchIconButton = document.getElementById('search-icon-button');
+            const searchBarContainer = document.getElementById('search-bar-container');
+
+            if (searchIconButton) {
+                searchIconButton.addEventListener('click', () => {
+                    searchBarContainer.classList.toggle('hidden');
+                });
+            }
 
             // --- Lógica del menú móvil ---
             if (mobileMenuButton) {
