@@ -197,15 +197,16 @@
         .nav-link-underline::after {
             content: '';
             position: absolute;
-            width: 0;
+            width: 0; /* Ancho inicial 0 */
             height: 1px;
             bottom: 0;
             left: 0;
-            background-color: var(--color-secondary-aquamarine);
-            transition: width 0.3s ease-in-out;
+            background-color: var(--color-text-light); /* Línea blanca */
+            transition: none; /* Sin transición para el ancho */
         }
         .nav-link-underline:hover::after {
-            width: 100%;
+            width: 100%; /* Aparece completamente al 100% */
+            transition: none; /* Asegura que no haya transición de ancho en hover */
         }
         .mobile-menu-content .nav-link-underline::after {
             bottom: 5px;
@@ -232,25 +233,25 @@
             animation: pin-drop 0.8s ease-out;
         }
 
-        /* Estilos para las tarjetas de categorías (video) */
-        .category-video {
+        /* Estilos para las tarjetas de categorías (video/imagen) */
+        .category-video-or-image { /* Clase unificada para video o imagen */
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que el video cubra el área */
+            object-fit: cover; /* Asegura que el contenido cubra el área */
             z-index: 1;
             border-radius: inherit;
             filter: grayscale(100%); /* Blanco y negro por defecto */
             transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out; /* Transición para color y zoom */
         }
-        .category-card:hover .category-video {
+        .category-card:hover .category-video-or-image {
             filter: grayscale(0%); /* Color al pasar el cursor */
             transform: scale(1.05); /* Leve zoom */
         }
 
-        /* Oculta los iconos animados de las categorías */
+        /* Oculta los iconos animados de las categorías (si aún quedaba algo) */
         .category-animation-icon {
             display: none;
         }
@@ -314,7 +315,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2; /* Por encima del video */
+            z-index: 2; /* Por encima del video/imagen */
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* Alinea el contenido hacia abajo */
@@ -404,7 +405,7 @@
     <header class="bg-primary-blue text-text-light shadow-md">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center">
-                <img src="Logo de Nombre con Iniciales Circular Tipográfico Blanco y Negro (1).png" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg">
+                <img src="isotipo1.jpg" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12 rounded-lg">
             </a>
 
             <div class="hidden md:flex space-x-6 text-lg font-medium">
@@ -524,7 +525,7 @@
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <!-- Imagen Hero actualizada -->
-                <img src="hero2.png" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
+                [Image of una mesa de trabajo con rollos de tela]
             </div>
         </div>
     </section>
@@ -534,7 +535,7 @@
             <h2 class="text-3xl md:text-5xl font-bold text-center text-primary-blue mb-12">Nuestras Líneas de Productos</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-0"> <!-- gap-0 para que estén pegadas -->
                 <!-- Tarjeta de Categoría: Antifluidos -->
-                <a href="antifluidos2.html" class="category-card-link">
+                <a href="antifluidos.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center"> <!-- rounded-none para pegar -->
                         <video class="category-video" muted playsinline poster="antifluidos2.png">
                             <source src="antifluidos.mp4" type="video/mp4">
@@ -548,7 +549,7 @@
                 <!-- Tarjeta de Categoría: Bebé Infantil -->
                 <a href="bebe-infantil.html" class="category-card-link">
                     <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="bebe2.png">
+                        <video class="category-video" muted playsinline poster="bebe.png">
                             <source src="bebe.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
                         </video>
