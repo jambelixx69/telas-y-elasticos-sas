@@ -3,248 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telas y Elásticos S.A.S. - Innovación en Telas</title>
-    <!-- Carga de Tailwind CSS para un diseño moderno y responsivo -->
+    <title>Telas y Elásticos S.A.S. - Tu Socio Estratégico para Crecer</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuente Montserrat desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Carga de Font Awesome para iconos de redes sociales y carrito -->
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons (para lupa, usuario, carrito, etc.) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Lucide Icons (del archivo adjunto, para tarjetas de soluciones y footer social) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        /* Definición de colores personalizados para Tailwind */
+        /* Definición de colores base de Telas y Elásticos S.A.S. */
         :root {
-            --color-primary-blue: #003366; /* Nuevo azul oscuro que evoca confianza y profesionalismo */
-            --color-secondary-aquamarine: #7FFFD4; /* Aguamarina para frescura y modernidad */
+            --color-primary-blue: #003366; /* Azul oscuro para Telas y Elásticos */
+            --color-secondary-aquamarine: #7FFFD4; /* Aguamarina para Telas y Elásticos */
             --color-text-dark: #333333;
             --color-text-light: #f9fafb; /* Blanco/Gris muy claro */
-            --color-bg-light: #f0f9ff; /* Un azul muy claro para fondos */
+        }
 
-            /* Colores vibrantes para títulos y enlaces de categorías */
-            --color-antifluidos-purple: #8A2BE2; /* Morado Vibrante */
-            --color-bebe-pink: #FF69B4; /* Rosado Vibrante */
-            --color-cacharreria-gray: #6B7280; /* Gris (oscuro pero vibrante en contraste) */
-            --color-deportiva-red: #FF0000; /* Rojo Vibrante */
-            --color-dotacion-khaki: #B8860B; /* Amarillo Ladrillo/Khaki Vibrante */
-            --color-escolar-blue: #003366; /* Azul similar al de la página (primary blue) */
-            --color-hogar-lilac: #B065FF; /* Lila Vibrante */
-            --color-mujer-teal: #00CED1; /* Teal/Turquesa Vibrante */
-        }
-        .bg-primary-blue { background-color: var(--color-primary-blue); }
-        .text-primary-blue { color: var(--color-primary-blue); }
-        .bg-secondary-aquamarine { background-color: var(--color-secondary-aquamarine); }
-        .text-secondary-aquamarine { color: var(--color-secondary-aquamarine); }
-        .text-text-dark { color: var(--color-text-dark); }
-        .text-text-light { color: var(--color-text-light); }
-        .bg-bg-light { background-color: var(--color-bg-light); }
         body {
-            font-family: 'Montserrat', sans-serif; /* Fuente cambiada a Montserrat */
-            color: var(--color-text-dark);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-        /* Estilos para el efecto de hover en las tarjetas de categoría */
-        .category-card-link {
-            display: block; /* Hace que el enlace ocupe toda la tarjeta */
-            text-decoration: none; /* Elimina el subrayado por defecto del enlace */
-            color: inherit; /* Hereda el color de texto para no cambiarlo por defecto */
+        .hero-gradient {
+            /* Usamos la imagen hero2.png como fondo fijo para el Hero */
+            background: linear-gradient(135deg, rgba(243, 244, 246, 0.8), rgba(229, 231, 235, 0.9)), url('hero2.png') no-repeat center center/cover;
+            background-attachment: fixed; /* Esto hace que la imagen sea fija al hacer scroll */
         }
-        .category-card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            position: relative; /* Necesario para posicionar el icono animado y el overlay */
-            overflow: hidden; /* Para que las animaciones no se salgan de la tarjeta si son grandes */
-            min-height: 250px; /* Altura mínima para las tarjetas */
-            padding: 0; /* Asegura que la imagen pueda ocupar todo el espacio */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* Empuja el contenido al final */
-            background-color: transparent; /* El fondo lo dará la imagen */
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+        .cta-button {
+            transition: all 0.3s ease;
         }
-        .category-card:hover {
-            transform: translateY(-5px) scale(1.02); /* Movimiento y zoom leve */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        /* Estilo para el botón flotante de WhatsApp */
+
+        /* Estilos para el botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            width: 60px; /* Asegura que sea un círculo perfecto */
-            height: 60px; /* Asegura que sea un círculo perfecto */
-            border-radius: 50%; /* Asegura la forma circular */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Eliminado el efecto Wi-Fi */
-            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); /* Mantiene la sombra normal si la hay */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
-        /* Animación para el efecto Wi-Fi de WhatsApp - Eliminada */
-        /* @keyframes pulse-whatsapp { ... } */
-
-        /* Estilo para el menú hamburguesa */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            display: none; /* Oculto por defecto */
-            justify-content: flex-end;
-            visibility: hidden; /* Mantenido para la transición suave */
-            opacity: 0; /* Mantenido para la transición suave */
-            transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
-        .mobile-menu-overlay.active {
-            display: flex; /* Mostrar cuando está activo */
-            visibility: visible;
-            opacity: 1;
-        }
-        .mobile-menu-content {
-            width: 70%;
-            max-width: 300px;
-            background-color: var(--color-primary-blue);
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-            padding: 20px;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .mobile-menu-content a {
-            padding: 10px 0;
-            width: 100%;
-            text-align: left;
-        }
-        .mobile-menu-overlay.active .mobile-menu-content {
-            transform: translateX(0);
-        }
-        /* Estilo para la barra lateral de redes sociales en desktop */
-        .social-sidebar {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 999;
-            background-color: var(--color-primary-blue);
-            padding: 10px 5px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            box-shadow: -3px 0 10px rgba(0,0,0,0.2);
-        }
-        /* Ocultar la barra lateral en pantallas pequeñas */
-        @media (max-width: 767px) {
-            .social-sidebar {
-                display: none;
-            }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
 
-        /* Nueva barra lateral de redes sociales para móviles */
-        .social-sidebar-mobile {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 998;
-            background-color: var(--color-primary-blue);
-            padding: 8px 5px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        /* Mostrar solo en pantallas pequeñas (hasta md) */
-        @media (min-width: 768px) {
-            .social-sidebar-mobile {
-                display: none;
-            }
-        }
-
-        /* Colores institucionales para redes sociales en hover */
-        .hover\:text-facebook-original:hover { color: #3b5998; }
-        .hover\:text-instagram-original:hover { color: #C13584; }
-        .hover\:text-youtube-original:hover { color: #FF0000; }
-        .bg-whatsapp { background-color: #25D366; }
-
-        /* Estilo para la línea en hover del menú */
-        .nav-link-underline {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .nav-link-underline::after {
-            content: '';
-            position: absolute;
-            width: 0; /* Ancho inicial 0 */
-            height: 1px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--color-text-light); /* Línea blanca */
-            transition: width 0.3s ease-in-out; /* Transición suave de ancho */
-        }
-        .nav-link-underline:hover::after {
-            width: 100%; /* Aparece completamente al 100% */
-        }
-        .mobile-menu-content .nav-link-underline::after {
-            bottom: 5px;
-        }
-
-        /* Animación de Vibración para el Teléfono */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
-            20%, 40%, 60%, 80% { transform: translateX(3px); }
-        }
-        .animate-shake:hover {
-            animation: shake 0.5s ease-in-out infinite;
-        }
-
-        /* Animación de Clavado para el Marcador de Dirección */
-        @keyframes pin-drop {
-            0% { transform: translateY(-100px) scale(0.5); opacity: 0; }
-            50% { transform: translateY(0) scale(1.2); opacity: 1; }
-            75% { transform: translateY(-10px) scale(0.9); }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
-        }
-        .animate-pin-drop:hover {
-            animation: pin-drop 0.8s ease-out;
-        }
-
-        /* Estilos para las tarjetas de categorías (video) */
-        .category-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Asegura que el video cubra el área */
-            z-index: 1;
-            border-radius: inherit;
-            filter: grayscale(100%); /* Blanco y negro por defecto */
-            transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out; /* Transición para color y zoom */
-        }
-        .category-card:hover .category-video {
-            filter: grayscale(0%); /* Color al pasar el cursor */
-            transform: scale(1.05); /* Leve zoom */
-        }
-
-        /* Oculta los iconos animados de las categorías */
-        .category-animation-icon {
-            display: none;
-        }
-
-        /* Estilos para los modales */
+        /* Estilos para los modales (ocultos por defecto) */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -256,13 +78,11 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            visibility: hidden; /* Mantenido para la transición suave */
-            opacity: 0; /* Mantenido para la transición suave */
-            transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
         .modal-overlay.active {
-            display: flex; /* Mostrar cuando está activo */
-            visibility: visible;
+            display: flex;
             opacity: 1;
         }
         .modal-content {
@@ -289,576 +109,449 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--color-text-dark);
+            color: #333333;
             transition: color 0.2s;
         }
         .modal-close-button:hover {
-            color: var(--color-primary-blue);
+            color: #003366; /* Color primary-blue de Telas y Elásticos */
         }
 
-        /* Contenido superpuesto sobre la imagen/video de la tarjeta */
-        .category-content-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2; /* Por encima del video */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* Alinea el contenido hacia abajo */
-            align-items: center; /* Centra horizontalmente el contenido */
-            text-align: center;
-            padding: 1.5rem 1rem 1rem;
-            border-radius: inherit;
-            /* Degradado muy sutil para legibilidad sobre el video */
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%); /* Degradado para legibilidad del texto */
+        /* Estilos para la barra de búsqueda que se despliega */
+        #search-bar-container {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
         }
-        .category-content-overlay h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--color-text-light); /* Color inicial blanco para el título */
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* Sombra para mejor lectura */
-            transition: color 0.3s ease-in-out;
-        }
-        .category-content-overlay .category-link-text {
-            color: var(--color-text-light);
-            font-weight: 500;
-            margin-top: 0.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-            transition: color 0.3s ease-in-out;
+        #search-bar-container.active {
+            max-height: 60px; /* Altura suficiente para la barra */
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
 
-        /* Colores del texto en hover para los títulos de categoría (aplicados al texto) */
-        .category-card-link:hover .category-content-overlay h3.antifluidos-title { color: var(--color-antifluidos-purple); }
-        .category-card-link:hover .category-content-overlay h3.bebe-infantil-title { color: var(--color-bebe-pink); }
-        .category-card-link:hover .category-content-overlay h3.cacharreria-title { color: var(--color-cacharreria-gray); }
-        .category-card-link:hover .category-content-overlay h3.deportiva-title { color: var(--color-deportiva-red); }
-        .category-card-link:hover .category-content-overlay h3.dotacion-title { color: var(--color-dotacion-khaki); }
-        .category-card-link:hover .category-content-overlay h3.escolar-title { color: var(--color-escolar-blue); }
-        .category-card-link:hover .category-content-overlay h3.hogar-title { color: var(--color-hogar-lilac); }
-        .category-card-link:hover .category-content-overlay h3.mujer-title { color: var(--color-mujer-teal); }
-
-        /* Colores del texto en hover para "Ver Productos" */
-        .category-card-link:hover .category-content-overlay .antifluidos-link-text { color: var(--color-antifluidos-purple); }
-        .category-card-link:hover .category-content-overlay .bebe-infantil-link-text { color: var(--color-bebe-pink); }
-        .category-card-link:hover .category-content-overlay .cacharreria-link-text { color: var(--color-cacharreria-gray); }
-        .category-card-link:hover .category-content-overlay .deportiva-link-text { color: var(--color-deportiva-red); }
-        .category-card-link:hover .category-content-overlay .dotacion-link-text { color: var(--color-dotacion-khaki); }
-        .category-card-link:hover .category-content-overlay .escolar-link-text { color: var(--color-escolar-blue); }
-        .category-card-link:hover .category-content-overlay .hogar-link-text { color: var(--color-hogar-lilac); }
-        .category-card-link:hover .category-content-overlay .mujer-link-text { color: var(--color-mujer-teal); }
-
-
-        /* Estilos para la barra superior de líneas de productos (eliminada) */
-        /* .top-product-lines-bar { ... } */
-        /* .top-product-lines-bar nav a { ... } */
-
-
-        /* Estilos para la barra de líneas de productos en el footer */
-        .footer-product-lines-bar {
-            background-color: #2D3748; /* Fondo gris oscuro personalizado */
-            padding: 1rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1); /* Separador sutil */
-        }
-        .footer-product-lines-bar nav a {
-            padding: 0.5rem 0.75rem;
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: #d1d5db; /* gray-300 de Tailwind, color base */
-            border-radius: 0.375rem; /* Bordes redondeados */
-            transition: color 0.3s, background-color 0.3s, transform 0.2s;
-            white-space: nowrap; /* Evita que el texto se rompa */
-        }
-        .footer-product-lines-bar nav a:hover {
-            transform: translateY(-2px);
-            background-color: #4A5568; /* Fondo gris un poco más claro en hover */
-        }
-        /* Colores en hover para la barra del footer */
-        .footer-product-lines-bar .antifluidos-link:hover { color: var(--color-antifluidos-purple); }
-        .footer-product-lines-bar .bebe-infantil-link:hover { color: var(--color-bebe-pink); }
-        .footer-product-lines-bar .cacharreria-link:hover { color: var(--color-cacharreria-gray); }
-        .footer-product-lines-bar .deportiva-link:hover { color: var(--color-deportiva-red); }
-        .footer-product-lines-bar .dotacion-link:hover { color: var(--color-dotacion-khaki); }
-        .footer-product-lines-bar .escolar-link:hover { color: var(--color-escolar-blue); }
-        .footer-product-lines-bar .hogar-link:hover { color: var(--color-hogar-lilac); }
-        .footer-product-lines-bar .mujer-link:hover { color: var(--color-mujer-teal); }
     </style>
 </head>
-<body>
-    <!-- Barra Superior de Líneas de Productos (Eliminada) -->
-    <!-- <div class="top-product-lines-bar hidden md:block"> ... </div> -->
+<body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-primary-blue text-text-light shadow-md">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="logo.png" alt="Logo Telas y Elásticos S.A.S." class="h-10 sm:h-12">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900 flex items-center">
+                <img src="logo.png" alt="Telas y Elásticos S.A.S. Logo" class="h-12 mr-2"> <!-- Logo de Telas y Elásticos -->
+                <span class="text-gray-900">Telas y <span class="text-secondary-aquamarine">Elásticos</span></span>
             </a>
-
-            <div class="hidden md:flex space-x-6 text-lg font-medium">
-                <a href="#" class="nav-link-underline hover:text-secondary-aquamarine transition duration-300">Inicio</a>
-                <a href="#categorias" class="nav-link-underline hover:text-secondary-aquamarine transition duration-300">Categorías</a>
-                <a href="#nosotros" class="nav-link-underline hover:text-secondary-aquamarine transition duration-300">Nosotros</a>
-                <a href="#contacto" class="nav-link-underline hover:text-secondary-aquamarine transition duration-300">Contacto</a>
-                <a href="#faq" class="nav-link-underline hover:text-secondary-aquamarine transition duration-300">FAQ</a>
-            </div>
-
+            
             <div class="flex items-center space-x-4">
-                <button id="search-icon-button" class="text-text-light hover:text-secondary-aquamarine transition duration-300">
-                    <i class="fas fa-search text-xl"></i>
+                <!-- Icono de Búsqueda -->
+                <button id="search-icon-button" class="text-gray-600 hover:text-indigo-600">
+                    <i data-lucide="search" class="text-xl"></i>
                 </button>
-                <button id="user-icon-button" class="text-text-light hover:text-secondary-aquamarine transition duration-300">
-                    <i class="fas fa-user text-xl"></i>
+                <!-- Icono de Usuario -->
+                <button id="user-icon-button" class="text-gray-600 hover:text-indigo-600">
+                    <i data-lucide="user" class="text-xl"></i>
                 </button>
-                <button id="cart-icon-button" class="text-text-light hover:text-secondary-aquamarine transition duration-300 relative">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span class="absolute -top-2 -right-2 bg-secondary-aquamarine text-primary-blue text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                <!-- Icono de Carrito -->
+                <button id="cart-icon-button" class="text-gray-600 hover:text-indigo-600 relative">
+                    <i data-lucide="shopping-cart" class="text-xl"></i>
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
                 </button>
-                <button id="mobile-menu-button" class="md:hidden text-text-light hover:text-secondary-aquamarine transition duration-300">
-                    <i class="fas fa-bars text-xl"></i>
+                <button id="mobile-menu-button" class="md:hidden">
+                    <i data-lucide="menu" class="text-gray-800"></i>
                 </button>
             </div>
         </nav>
         <!-- Barra de Búsqueda Desplegable (oculta por defecto) -->
-        <div id="search-bar-container" class="bg-primary-blue py-2 px-4 hidden">
+        <div id="search-bar-container" class="bg-gray-100 py-2 px-4 hidden">
             <div class="container mx-auto">
-                <div class="relative w-full md:max-w-3xl md:mx-auto">
-                    <input type="text" placeholder="Buscar telas, categorías..." class="w-full py-2 pl-10 pr-4 rounded-full bg-white text-text-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary-aquamarine shadow-inner">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-search text-gray-400"></i>
-                    </div>
-                </div>
+                <input type="text" placeholder="Buscar telas, categorías..." class="w-full px-4 py-2 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-gray-100">
+            <a href="#soluciones" class="block py-2 text-gray-600 hover:text-indigo-600">Soluciones para Ti</a>
+            <a href="#colecciones" class="block py-2 text-gray-600 hover:text-indigo-600">Nuestras Telas</a>
+            <a href="#comunidad" class="block py-2 text-gray-600 hover:text-indigo-600">Comunidad</a>
+            <a href="#contacto" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-lg cta-button">Habla con un Asesor</a>
         </div>
     </header>
 
-    <!-- Modal de Registro de Usuario -->
-    <div id="user-modal-overlay" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button" id="user-modal-close">&times;</button>
-            <h2 class="text-2xl font-bold text-primary-blue mb-4">Registro de Nuevo Cliente</h2>
-            <form class="space-y-4">
-                <div>
-                    <label for="reg-name" class="block text-sm font-medium text-text-dark">Nombre Completo</label>
-                    <input type="text" id="reg-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-secondary-aquamarine focus:border-secondary-aquamarine">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-gradient py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">Más que un proveedor de telas, <br class="hidden md:block"> tu <span class="text-secondary-aquamarine">socio estratégico</span> para crecer.</h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto">Entendemos los desafíos del microempresario en Santander. Por eso, te ofrecemos soluciones reales, conocimiento y las telas que necesitas para que tu negocio de moda despegue.</p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <a href="#soluciones" class="bg-secondary-aquamarine text-primary-blue px-8 py-3 rounded-lg font-semibold text-lg cta-button">Descubre Nuestras Soluciones</a>
+                    <a href="#colecciones" class="bg-white text-primary-blue px-8 py-3 rounded-lg font-semibold text-lg border border-primary-blue cta-button">Ver Catálogo de Telas</a>
                 </div>
-                <div>
-                    <label for="reg-email" class="block text-sm font-medium text-text-dark">Correo Electrónico</label>
-                    <input type="email" id="reg-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-secondary-aquamarine focus:border-secondary-aquamarine">
-                </div>
-                <div>
-                    <label for="reg-password" class="block text-sm font-medium text-text-dark">Contraseña</label>
-                    <input type="password" id="reg-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-secondary-aquamarine focus:border-secondary-aquamarine">
-                </div>
-                <div>
-                    <label for="reg-confirm-password" class="block text-sm font-medium text-text-dark">Confirmar Contraseña</label>
-                    <input type="password" id="reg-confirm-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-secondary-aquamarine focus:border-secondary-aquamarine">
-                </div>
-                <button type="submit" class="w-full bg-primary-blue text-text-light py-2 px-4 rounded-md font-semibold hover:bg-opacity-90 transition duration-300">Registrarse</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal de Carrito de Compras -->
-    <div id="cart-modal-overlay" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button" id="cart-modal-close">&times;</button>
-            <h2 class="text-2xl font-bold text-primary-blue mb-4">Tu Carrito de Compras</h2>
-            <div id="cart-items" class="mb-4">
-                <!-- Aquí se mostrarán los productos del carrito -->
-                <p class="text-text-dark text-center py-4">Tu carrito está vacío.</p>
-                <!-- Ejemplo de producto en el carrito (oculto por defecto) -->
-                <!--
-                <div class="flex justify-between items-center border-b pb-2 mb-2">
-                    <span class="text-text-dark">Tela Antifluidos (5m)</span>
-                    <span class="text-text-dark font-semibold">$50.000</span>
-                </div>
-                -->
             </div>
-            <div class="flex justify-between items-center font-bold text-lg mb-4">
-                <span>Total:</span>
-                <span>$0.00</span>
-            </div>
-            <button class="w-full bg-secondary-aquamarine text-primary-blue py-2 px-4 rounded-md font-semibold hover:bg-opacity-90 transition duration-300">Proceder al Pago</button>
-        </div>
-    </div>
+        </section>
 
-    <!-- Menú Móvil Desplegable (Overlay) -->
-    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
-        <div id="mobile-menu-content" class="mobile-menu-content">
-            <button id="close-mobile-menu" class="self-end text-text-light text-2xl hover:text-secondary-aquamarine mb-6">
-                <i class="fas fa-times"></i>
-            </button>
-            <a href="#" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Inicio</a>
-            <a href="#categorias" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Categorías</a>
-            <a href="#nosotros" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Nosotros</a>
-            <a href="#contacto" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">Contacto</a>
-            <a href="#faq" class="nav-link-underline block py-3 text-text-light hover:text-secondary-aquamarine transition duration-300 text-lg w-full text-left">FAQ</a>
-        </div>
-    </div>
-
-    <section class="relative bg-bg-light py-10 md:py-32 overflow-hidden">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between z-10 relative">
-            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-                <h1 class="text-3xl md:text-6xl font-bold leading-tight text-primary-blue mb-4">
-                    Descubre la <span class="text-secondary-aquamarine">Tela Perfecta</span> para Cada Creación
-                </h1>
-                <p class="text-base md:text-xl text-text-dark mb-6">
-                    En Telas y Elásticos, la calidad y la innovación se tejen en cada fibra. Encuentra la inspiración para tus proyectos.
-                </p>
-                <a href="#categorias" class="inline-block bg-secondary-aquamarine text-primary-blue font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
-                    Explorar Categorías
-                </a>
+        <!-- Soluciones para Microempresarios Section -->
+        <section id="soluciones" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Soluciones Pensadas <span class="text-secondary-aquamarine">para Ti</span></h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Sabemos que cada metro de tela cuenta. Por eso, creamos herramientas y servicios que se ajustan a la realidad de tu taller o emprendimiento.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1: Kits para Emprendedores -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-blue/10 text-primary-blue rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                            <i data-lucide="package-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kits de Inicio para Emprendedores</h3>
+                        <p class="text-gray-600">¿Necesitas variedad sin comprar rollos enteros? Nuestros kits te dan acceso a distintas telas en metrajes pequeños, ideales para muestrarios, colecciones cápsula o para empezar tu negocio sin una gran inversión.</p>
+                    </div>
+                    <!-- Card 2: Asesoría y Conocimiento -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-blue/10 text-primary-blue rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                            <i data-lucide="book-open-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Asesoría y Conocimiento a tu Alcance</h3>
+                        <p class="text-gray-600">¿"Piel de durazno" o "microfibra perchada"? Te ayudamos a descifrarlo. Accede a nuestro glosario de telas, informes de tendencias y recibe asesoría personalizada para elegir el material perfecto para tu proyecto.</p>
+                    </div>
+                    <!-- Card 3: Flexibilidad de Compra -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-blue/10 text-primary-blue rounded-full h-12 w-12 flex items-center justify-center mb-4">
+                            <i data-lucide="shopping-cart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Flexibilidad de Compra</h3>
+                        <p class="text-gray-600">Compra desde un metro en adelante en una amplia selección de nuestro catálogo. Sin pedidos mínimos agobiantes. Nos adaptamos a tu ritmo de producción y a tu flujo de caja. Tu crecimiento es nuestro objetivo.</p>
+                    </div>
+                </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <!-- Imagen Hero actualizada -->
-                <img src="hero2.png" alt="Variedad de Telas y Rollos en Exhibición" class="rounded-xl shadow-2xl transform rotate-3 hover:rotate-0 transition duration-500 w-full max-w-xs md:max-w-full h-auto">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="categorias" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-primary-blue mb-12">Nuestras Líneas de Productos</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-0"> <!-- gap-0 para que estén pegadas -->
-                <!-- Tarjeta de Categoría: Antifluidos -->
-                <a href="antifluidos2.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center"> <!-- rounded-none para pegar -->
-                        <video class="category-video" muted playsinline poster="antifluidos2.png">
-                            <source src="antifluidos.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold antifluidos-title">Antifluidos</h3>
+        <!-- Colecciones de Telas Section (Adaptada a Telas y Elásticos) -->
+        <section id="colecciones" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Nuestro Portafolio de <span class="text-secondary-aquamarine">Líneas de Productos</span></h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Organizamos nuestras telas pensando en tus necesidades de producción. Encuentra fácilmente lo que buscas para cada uno de tus proyectos.</p>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-0">
+                    <!-- Categoría: Antifluidos -->
+                    <a href="antifluidos.html" class="category-card-link">
+                        <div class="category-card rounded-none shadow-lg">
+                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="antifluidos2.png">
+                                <source src="antifluidos.mp4" type="video/mp4">
+                                Tu navegador no soporta el tag de video.
+                            </video>
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                                <h3 class="text-white text-2xl font-bold group-hover:text-antifluidos-purple transition-colors duration-300">Antifluidos</h3>
+                            </div>
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="mb-4">Telas especializadas que repelen líquidos, ideales para uniformes médicos, estéticos y de servicio.</p>
+                                <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-antifluidos-purple transition-colors">Ver Colección</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Tarjeta de Categoría: Bebé Infantil -->
-                <a href="bebe-infantil.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="bebe2.png">
-                            <source src="bebe.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold bebe-infantil-title">Bebé Infantil</h3>
+                    </a>
+                    <!-- Categoría: Bebé Infantil -->
+                    <a href="bebe-infantil.html" class="category-card-link">
+                        <div class="category-card rounded-none shadow-lg">
+                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="bebe2.png">
+                                <source src="bebe.mp4" type="video/mp4">
+                                Tu navegador no soporta el tag de video.
+                            </video>
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                                <h3 class="text-white text-2xl font-bold group-hover:text-bebe-pink transition-colors duration-300">Bebé Infantil</h3>
+                            </div>
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="mb-4">Telas suaves, hipoalergénicas y seguras para la piel delicada de los más pequeños.</p>
+                                <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-bebe-pink transition-colors">Ver Colección</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Tarjeta de Categoría: Cacharrería -->
-                <a href="cacharreria.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="boton2.jpg">
-                            <source src="cacharreria.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold cacharreria-title">Cacharrería</h3>
+                    </a>
+                    <!-- Categoría: Cacharrería -->
+                    <a href="cacharreria.html" class="category-card-link">
+                        <div class="category-card rounded-none shadow-lg">
+                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="boton2.jpg">
+                                <source src="cacharreria.mp4" type="video/mp4">
+                                Tu navegador no soporta el tag de video.
+                            </video>
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                                <h3 class="text-white text-2xl font-bold group-hover:text-cacharreria-gray transition-colors duration-300">Cacharrería</h3>
+                            </div>
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="mb-4">Amplia variedad de accesorios como botones, cintas y elásticos para tus proyectos de confección.</p>
+                                <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-cacharreria-gray transition-colors">Ver Colección</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Tarjeta de Categoría: Deportiva -->
-                <a href="deportiva.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="deportivos2.png">
-                            <source src="deportiva.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold deportiva-title">Deportiva</h3>
+                    </a>
+                    <!-- Categoría: Deportiva -->
+                    <a href="deportiva.html" class="category-card-link">
+                        <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
+                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="deportivos.png">
+                                <source src="deportiva.mp4" type="video/mp4">
+                                Tu navegador no soporta el tag de video.
+                            </video>
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                                <h3 class="text-white text-2xl font-bold group-hover:text-deportiva-red transition-colors duration-300">Deportiva</h3>
+                            </div>
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="mb-4">Telas de alto rendimiento: transpirables, elásticas y resistentes para uniformes y ropa deportiva.</p>
+                                <a href="deportiva.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-deportiva-red transition-colors">Ver Colección</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Tarjeta de Categoría: Dotación -->
-                <a href="dotacion.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="dotacion2.png">
-                            <source src="dotacion.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold dotacion-title">Dotación</h3>
+                    </a>
+                    <!-- Categoría: Dotación -->
+                    <a href="dotacion.html" class="category-card-link">
+                        <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
+                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="dotacion2.png">
+                                <source src="dotacion.mp4" type="video/mp4">
+                                Tu navegador no soporta el tag de video.
+                            </video>
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                                <h3 class="text-white text-2xl font-bold group-hover:text-dotacion-khaki transition-colors duration-300">Dotación</h3>
+                            </div>
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="mb-4">Materiales resistentes y duraderos para uniformes de trabajo pesado y vestuario corporativo.</p>
+                                <a href="dotacion.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-dotacion-khaki transition-colors">Ver Colección</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Tarjeta de Categoría: Escolar -->
-                <a href="Escolar.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="escolar.mp4">
-                            <source src="escolar.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold escolar-title">Escolar</h3>
+                    </a>
+                    <!-- Categoría: Escolar -->
+                    <a href="Escolar.html" class="category-card-link">
+                        <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
+                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="escolar.mp4">
+                                <source src="escolar.mp4" type="video/mp4">
+                                Tu navegador no soporta el tag de video.
+                            </video>
+                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                                <h3 class="text-white text-2xl font-bold group-hover:text-escolar-blue transition-colors duration-300">Escolar</h3>
+                            </div>
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p class="mb-4">Telas duraderas y confortables, ideales para la confección de uniformes escolares de alta calidad.</p>
+                                <a href="Escolar.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-escolar-blue transition-colors">Ver Colección</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- Tarjeta de Categoría: Hogar -->
-                <a href="hogar.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="hogar2.png">
+                    </a>
+                     <!-- Categoría: Hogar -->
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
+                        <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="hogar.mp4">
                             <source src="hogar.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
                         </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold hogar-title">Hogar</h3>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                            <h3 class="text-white text-2xl font-bold group-hover:text-hogar-lilac transition-colors duration-300">Hogar</h3>
+                        </div>
+                         <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Variedad de telas para crear ambientes acogedores: cortinas, manteles, sábanas y tapicería.</p>
+                            <a href="hogar.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-hogar-lilac transition-colors">Ver Colección</a>
                         </div>
                     </div>
-                </a>
-                <!-- Tarjeta de Categoría: Mujer -->
-                <a href="mujer.html" class="category-card-link">
-                    <div class="category-card rounded-none shadow-lg flex flex-col items-center justify-start text-center">
-                        <video class="category-video" muted playsinline poster="mujer.png">
+                     <!-- Categoría: Mujer -->
+                    <div class="relative group overflow-hidden shadow-lg min-h-[300px]">
+                        <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="mujer.mp4">
                             <source src="mujer.mp4" type="video/mp4">
                             Tu navegador no soporta el tag de video.
                         </video>
-                        <div class="category-content-overlay">
-                            <h3 class="text-lg sm:text-xl font-semibold mujer-title">Mujer</h3>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
+                            <h3 class="text-white text-2xl font-bold group-hover:text-mujer-teal transition-colors duration-300">Mujer</h3>
+                        </div>
+                         <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Las últimas tendencias en telas para diseños femeninos: desde crepés elegantes hasta tejidos con caída perfecta.</p>
+                            <a href="mujer.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-mujer-teal transition-colors">Ver Colección</a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="nosotros" class="bg-primary-blue text-text-light py-16 md:py-24">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-8">Nuestra Historia</h2>
-            <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                En Telas y Elásticos S.A.S., nos dedicamos a ofrecer la más alta calidad en telas e insumos para confección. Con años de experiencia en Bucaramanga, somos tu aliado perfecto para dar vida a tus ideas, desde proyectos de moda hasta dotaciones industriales.
-            </p>
-            <a href="#" class="mt-10 inline-block bg-secondary-aquamarine text-primary-blue font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
-                Conoce Más
-                <i class="fas fa-arrow-right ml-1"></i>
-            </a>
-        </div>
-    </section>
+        <!-- Comunidad Section -->
+        <section id="comunidad" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Crece con Nuestra <span class="text-secondary-aquamarine">Comunidad</span></h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Creemos en el poder de la colaboración. Te invitamos a ser parte de un ecosistema que impulsa la moda en Santander.</p>
+                </div>
+                <div class="bg-primary-blue/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-gray-900">Talleres y Capacitaciones Exclusivas</h3>
+                        <p class="mt-4 text-gray-700">Participa en nuestros talleres gratuitos sobre tendencias, manejo de nuevas fibras, técnicas de confección y gestión de costos para pequeños talleres. ¡Invierte en tu conocimiento!</p>
 
-    <section id="faq" class="py-16 md:py-24 bg-bg-light">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-primary-blue mb-12">Preguntas Frecuentes</h2>
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-primary-blue mb-2">¿Cómo puedo realizar un pedido?</h3>
-                    <p class="text-text-dark">Puedes explorar nuestras categorías, seleccionar los productos que te interesan y añadirlos al carrito de compras. Luego, sigue los pasos para finalizar tu pedido.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-primary-blue mb-2">¿Cuáles son las opciones de entrega?</h3>
-                    <p class="text-text-dark">Ofrecemos la opción de recogida en nuestra tienda en Bucaramanga. Para otras ciudades, realizamos envíos por remesa. Más detalles en el proceso de compra.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-primary-blue mb-2">¿Puedo ver las telas en persona antes de comprar?</h3>
-                    <p class="text-text-dark">¡Claro! Te invitamos a visitar nuestra tienda en CALLE 37 # 16-04 LOCAL: 377, Bucaramanga, Colombia, para ver y sentir nuestras telas.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-8">Mantente a la Vanguardia</h3>
+                        <p class="mt-4 text-gray-700">Suscríbete a nuestro boletín mensual y recibe directamente en tu correo los últimos informes de tendencias, noticias del sector, y acceso prioritario a nuestras nuevas colecciones y promociones.</p>
 
-    <section id="contacto" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-primary-blue mb-8">Contáctanos</h2>
-            <p class="text-lg md:text-xl text-text-dark mb-12 max-w-2xl mx-auto">
-                ¿Tienes alguna pregunta o necesitas asesoría? Estamos aquí para ayudarte.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
-                <div class="text-center">
-                    <i class="fas fa-phone-alt text-4xl text-secondary-aquamarine mb-4 animate-shake"></i> <p class="text-xl font-semibold text-primary-blue">Teléfono</p>
-                    <p class="text-lg text-text-dark">+57 318 7126104</p>
-                </div>
-                <div class="text-center">
-                    <i class="fas fa-map-marker-alt text-4xl text-secondary-aquamarine mb-4 animate-pin-drop"></i> <p class="text-xl font-semibold text-primary-blue">Dirección</p>
-                    <p class="text-lg text-text-dark">CALLE 37 # 16-04 LOCAL: 377, Bucaramanga, Colombia</p>
+                        <form class="mt-6 flex flex-col sm:flex-row gap-3">
+                            <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required>
+                            <button type="submit" class="bg-secondary-aquamarine text-primary-blue px-6 py-3 rounded-lg font-semibold cta-button whitespace-nowrap">¡Suscribirme!</button>
+                        </form>
+                    </div>
+                    <div class="md:w-1/2">
+                                            </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="bg-primary-blue text-text-light py-10">
-        <div class="container mx-auto px-4 flex flex-col items-center text-center">
-            <div class="mb-2">
-                <h3 class="text-xl font-bold">Telas y Elásticos S.A.S.</h3>
+        <!-- Contacto Section -->
+        <section id="contacto" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">¿Listo para Empezar?</h2>
+                     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Nuestro equipo de asesores está listo para ayudarte a encontrar la tela perfecta. Contáctanos y demos juntos el siguiente paso.</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Habla con nosotros</h3>
+                             <div class="flex items-center gap-4 mb-4 text-gray-700">
+                                <i data-lucide="phone"></i>
+                                <span>+57 318 7126104</span>
+                            </div>
+                             <div class="flex items-center gap-4 mb-4 text-gray-700">
+                                <i data-lucide="mail"></i>
+                                <span>ventas@telasyelasticos.com</span>
+                            </div>
+                             <div class="flex items-start gap-4 text-gray-700">
+                                <i data-lucide="map-pin" class="mt-1"></i>
+                                <span>CALLE 37 # 16-04 LOCAL: 377, <br>Bucaramanga, Colombia</span>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required>
+                            </div>
+                             <div class="mb-4">
+                                <label for="email_contact" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                                <input type="email" id="email_contact" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required>
+                            </div>
+                             <div class="mb-4">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">¿En qué podemos ayudarte?</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold cta-button">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div>
-                <p class="text-sm">© 2025 Todos los derechos reservados.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold">Telas y Elásticos S.A.S.</h3>
+                    <p class="mt-2 text-gray-400">Tu socio estratégico para el crecimiento de tu negocio de moda en Santander.</p>
+                </div>
+                <div>
+                     <h3 class="text-lg font-semibold mb-2">Navegación</h3>
+                     <ul>
+                         <li><a href="#soluciones" class="text-gray-400 hover:text-white">Soluciones</a></li>
+                         <li><a href="#colecciones" class="text-gray-400 hover:text-white">Nuestras Telas</a></li>
+                         <li><a href="#comunidad" class="text-gray-400 hover:text-white">Comunidad</a></li>
+                     </ul>
+                </div>
+                 <div>
+                     <h3 class="text-lg font-semibold mb-2">Síguenos</h3>
+                     <div class="flex space-x-4">
+                         <a href="https://www.instagram.com/telasyelasticos/" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
+                         <a href="https://www.facebook.com/profile.php?id=100063649790074" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="facebook"></i></a>
+                         <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="youtube"></i></a>
+                     </div>
+                </div>
             </div>
-        </div>
-        <!-- Barra de Líneas de Productos en el Footer -->
-        <div class="footer-product-lines-bar w-full mt-8">
-            <nav class="flex justify-center items-center flex-wrap gap-x-4 gap-y-2 px-4">
-                <a href="antifluidos.html" class="antifluidos-link hover:text-antifluidos-purple">Antifluidos</a>
-                <a href="bebe-infantil.html" class="bebe-infantil-link hover:text-bebe-pink">Bebé Infantil</a>
-                <a href="cacharreria.html" class="cacharreria-link hover:text-cacharreria-gray">Cacharrería</a>
-                <a href="deportiva.html" class="deportiva-link hover:text-deportiva-red">Deportiva</a>
-                <a href="dotacion.html" class="dotacion-link hover:text-dotacion-khaki">Dotación</a>
-                <a href="Escolar.html" class="escolar-link hover:text-escolar-blue">Escolar</a>
-                <a href="hogar.html" class="hogar-link hover:text-hogar-lilac">Hogar</a>
-                <a href="mujer.html" class="mujer-link hover:text-mujer-teal">Mujer</a>
-            </nav>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+                &copy; <span id="year"></span> Telas y Elásticos S.A.S. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/573187126104" target="_blank" class="whatsapp-float bg-whatsapp text-white rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-110">
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/573187126104" target="_blank" class="whatsapp-float bg-whatsapp text-white">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <div class="social-sidebar hidden md:flex">
-        <a href="https://www.facebook.com/profile.php?id=100063649790074" target="_blank" class="text-gray-300 hover:text-facebook-original transition duration-300 text-2xl">
-            <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/telasyelasticos/" target="_blank" class="text-gray-300 hover:text-instagram-original transition duration-300 text-2xl">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" target="_blank" class="text-gray-300 hover:text-youtube-original transition duration-300 text-2xl">
-            <i class="fab fa-youtube"></i>
-        </a>
-    </div>
-
-    <div class="social-sidebar-mobile md:hidden">
-        <a href="https://www.facebook.com/profile.php?id=100063649790074" target="_blank" class="text-gray-300 hover:text-facebook-original transition duration-300 text-xl">
-            <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.instagram.com/telasyelasticos/" target="_blank" class="text-gray-300 hover:text-instagram-original transition duration-300 text-xl">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" target="_blank" class="text-gray-300 hover:text-youtube-original transition duration-300 text-xl">
-            <i class="fab fa-youtube"></i>
-        </a>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-            const mobileMenuContent = document.getElementById('mobile-menu-content');
+        // Lucide Icons initialization
+        lucide.createIcons();
 
-            // Botones de modales
-            const userIconButton = document.getElementById('user-icon-button');
-            const userModalOverlay = document.getElementById('user-modal-overlay');
-            const userModalCloseButton = document.getElementById('user-modal-close');
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-            const cartIconButton = document.getElementById('cart-icon-button');
-            const cartModalOverlay = document.getElementById('cart-modal-overlay');
-            const cartModalCloseButton = document.getElementById('cart-modal-close');
+        // Search bar toggle
+        const searchIconButton = document.getElementById('search-icon-button');
+        const searchBarContainer = document.getElementById('search-bar-container');
+        if (searchIconButton && searchBarContainer) {
+            searchIconButton.addEventListener('click', () => {
+                searchBarContainer.classList.toggle('hidden');
+                searchBarContainer.classList.toggle('active'); // Para la transición de altura
+            });
+        }
 
-            // --- Lógica de la barra de búsqueda ---
-            const searchIconButton = document.getElementById('search-icon-button');
-            const searchBarContainer = document.getElementById('search-bar-container');
+        // Modals (User and Cart)
+        const userIconButton = document.getElementById('user-icon-button');
+        const userModalOverlay = document.getElementById('user-modal-overlay');
+        const userModalCloseButton = document.getElementById('user-modal-close');
 
-            if (searchIconButton) {
-                searchIconButton.addEventListener('click', () => {
-                    searchBarContainer.classList.toggle('hidden');
-                });
-            }
+        const cartIconButton = document.getElementById('cart-icon-button');
+        const cartModalOverlay = document.getElementById('cart-modal-overlay');
+        const cartModalCloseButton = document.getElementById('cart-modal-close');
 
-            // --- Lógica del menú móvil ---
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenuOverlay.classList.add('active');
-                });
-            }
-
-            if (closeMobileMenuButton) {
-                closeMobileMenuButton.addEventListener('click', () => {
-                    mobileMenuOverlay.classList.remove('active');
-                });
-            }
-
-            if (mobileMenuOverlay) {
-                mobileMenuOverlay.addEventListener('click', (event) => {
-                    if (event.target === mobileMenuOverlay) {
-                        mobileMenuOverlay.classList.remove('active');
-                    }
-                });
-            }
-
-            if (mobileMenuContent) {
-                const mobileMenuLinks = mobileMenuContent.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenuOverlay.classList.remove('active');
-                    });
-                });
-            }
-
-            // --- Lógica para abrir/cerrar modal de Usuario ---
-            if (userIconButton) {
-                userIconButton.addEventListener('click', () => {
-                    userModalOverlay.classList.add('active');
-                });
-            }
-            if (userModalCloseButton) {
-                userModalCloseButton.addEventListener('click', () => {
+        // User Modal Logic
+        if (userIconButton && userModalOverlay && userModalCloseButton) {
+            userIconButton.addEventListener('click', () => {
+                userModalOverlay.classList.add('active');
+            });
+            userModalCloseButton.addEventListener('click', () => {
+                userModalOverlay.classList.remove('active');
+            });
+            userModalOverlay.addEventListener('click', (event) => {
+                if (event.target === userModalOverlay) {
                     userModalOverlay.classList.remove('active');
-                });
-            }
-            // Cerrar modal al hacer clic fuera
-            if (userModalOverlay) {
-                userModalOverlay.addEventListener('click', (event) => {
-                    if (event.target === userModalOverlay) {
-                        userModalOverlay.classList.remove('active');
-                    }
-                });
-            }
-
-            // --- Lógica para abrir/cerrar modal de Carrito ---
-            if (cartIconButton) {
-                cartIconButton.addEventListener('click', () => {
-                    cartModalOverlay.classList.add('active');
-                });
-            }
-            if (cartModalCloseButton) {
-                cartModalCloseButton.addEventListener('click', () => {
-                    cartModalOverlay.classList.remove('active');
-                });
-            }
-            // Cerrar modal al hacer clic fuera
-            if (cartModalOverlay) {
-                cartModalOverlay.addEventListener('click', (event) => {
-                    if (event.target === cartModalOverlay) {
-                        cartModalOverlay.classList.remove('active');
-                    }
-                });
-            }
-
-
-            // --- Lógica de redimensionamiento (para ocultar/mostrar menú desktop/móvil) ---
-            const handleResize = () => {
-                const desktopNav = document.querySelector('header nav > div.hidden.md\\:flex');
-                const mobileMenuBtn = document.getElementById('mobile-menu-button');
-                if (desktopNav && mobileMenuBtn) { // Asegurarse de que los elementos existan
-                    if (window.innerWidth < 768) { // md breakpoint is 768px
-                        desktopNav.classList.add('hidden');
-                        mobileMenuBtn.classList.remove('hidden');
-                    } else {
-                        desktopNav.classList.remove('hidden');
-                        mobileMenuBtn.classList.add('hidden');
-                        if (mobileMenuOverlay) { // Asegurarse de que el overlay exista antes de intentar remover la clase
-                            mobileMenuOverlay.classList.remove('active'); // Close mobile menu if resized to desktop
-                        }
-                    }
-                }
-            };
-
-            window.addEventListener('resize', handleResize);
-            handleResize(); // Ejecutar al cargar para asegurar el estado inicial correcto en móvil
-
-            // Lógica para videos al pasar el cursor en tarjetas
-            document.querySelectorAll('.category-card-link').forEach(cardLink => {
-                const video = cardLink.querySelector('.category-video');
-                if (video) {
-                    cardLink.addEventListener('mouseover', () => {
-                        video.play();
-                    });
-                    cardLink.addEventListener('mouseout', () => {
-                        video.pause();
-                        // Opcional: Reiniciar el video al inicio cuando el mouse sale
-                        video.currentTime = 0;
-                    });
                 }
             });
+        }
+
+        // Cart Modal Logic
+        if (cartIconButton && cartModalOverlay && cartModalCloseButton) {
+            cartIconButton.addEventListener('click', () => {
+                cartModalOverlay.classList.add('active');
+            });
+            cartModalCloseButton.addEventListener('click', () => {
+                cartModalOverlay.classList.remove('active');
+            });
+            cartModalOverlay.addEventListener('click', (event) => {
+                if (event.target === cartModalOverlay) {
+                    cartModalOverlay.classList.remove('active');
+                }
+            });
+        }
+
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Video play/pause on hover for category cards
+        // Esta lógica de video es específica si tienes videos en las tarjetas.
+        // Si las tarjetas son solo imágenes, puedes eliminar este bloque.
+        document.querySelectorAll('.relative.group.overflow-hidden').forEach(card => {
+            const video = card.querySelector('video');
+            if (video) {
+                card.addEventListener('mouseenter', () => {
+                    video.play();
+                });
+                card.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0; // Rewind video to start
+                });
+            }
         });
+
     </script>
 </body>
 </html>
+
