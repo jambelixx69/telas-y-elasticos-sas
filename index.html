@@ -3,39 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telas y Elásticos S.A.S. - Tu Socio Estratégico para Crecer</title>
-
-    <!-- Tailwind CSS -->
+    <title>Telas y Elásticos - Tu Aliado para Crecer en Santander</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Inter -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons (para lupa, usuario, carrito, etc.) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Lucide Icons (del archivo adjunto, para tarjetas de soluciones y footer social) -->
+    
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Definición de colores base de Telas y Elásticos S.A.S. */
-        :root {
-            --color-primary-blue: #003366; /* Azul oscuro para Telas y Elásticos */
-            --color-secondary-aquamarine: #7FFFD4; /* Aguamarina para Telas y Elásticos */
-            --color-text-dark: #333333;
-            --color-text-light: #f9fafb; /* Blanco/Gris muy claro */
-        }
-
+        /* Custom Styles */
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-        .hero-gradient {
-            /* Usamos la imagen hero2.png como fondo fijo para el Hero */
-            background: linear-gradient(135deg, rgba(243, 244, 246, 0.8), rgba(229, 231, 235, 0.9)), url('hero2.png') no-repeat center center/cover;
-            background-attachment: fixed; /* Esto hace que la imagen sea fija al hacer scroll */
+        /* --- IMAGEN 1 INTEGRADA AQUÍ --- */
+        .hero {
+            background: linear-gradient(rgba(40, 50, 70, 0.5), rgba(40, 50, 70, 0.3)), url('1mujer.jpg') no-repeat center center/cover;
         }
         .cta-button {
             transition: all 0.3s ease;
@@ -44,514 +30,232 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-
-        /* Estilos para el botón flotante de WhatsApp */
-        .whatsapp-float {
+        .whatsapp-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            z-index: 1000;
             transition: transform 0.3s ease;
         }
-        .whatsapp-float:hover {
+        .whatsapp-button:hover {
             transform: scale(1.1);
         }
-
-        /* Estilos para los modales (ocultos por defecto) */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none; /* Oculto por defecto */
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 500px;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            position: relative;
-        }
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .modal-close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333333;
-            transition: color 0.2s;
-        }
-        .modal-close-button:hover {
-            color: #003366; /* Color primary-blue de Telas y Elásticos */
-        }
-
-        /* Estilos para la barra de búsqueda que se despliega */
-        #search-bar-container {
-            transition: all 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        #search-bar-container.active {
-            max-height: 60px; /* Altura suficiente para la barra */
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header -->
+    <a href="https://wa.me/573187126104" target="_blank" class="whatsapp-button" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </a>
+
     <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-900 flex items-center">
-                <img src="logo.png" alt="Telas y Elásticos S.A.S. Logo" class="h-12 mr-2"> <!-- Logo de Telas y Elásticos -->
-                <span class="text-gray-900">Telas y <span class="text-secondary-aquamarine">Elásticos</span></span>
+            <a href="#" class="text-2xl font-bold text-gray-900">
+                Telas<span class="text-indigo-600"> y Elásticos</span>
             </a>
-            
-            <div class="flex items-center space-x-4">
-                <!-- Icono de Búsqueda -->
-                <button id="search-icon-button" class="text-gray-600 hover:text-indigo-600">
-                    <i data-lucide="search" class="text-xl"></i>
-                </button>
-                <!-- Icono de Usuario -->
-                <button id="user-icon-button" class="text-gray-600 hover:text-indigo-600">
-                    <i data-lucide="user" class="text-xl"></i>
-                </button>
-                <!-- Icono de Carrito -->
-                <button id="cart-icon-button" class="text-gray-600 hover:text-indigo-600 relative">
-                    <i data-lucide="shopping-cart" class="text-xl"></i>
-                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
-                </button>
-                <button id="mobile-menu-button" class="md:hidden">
-                    <i data-lucide="menu" class="text-gray-800"></i>
-                </button>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#soluciones" class="text-gray-600 hover:text-indigo-600 font-medium">Soluciones</a>
+                <a href="#colecciones" class="text-gray-600 hover:text-indigo-600 font-medium">Colecciones</a>
+                <a href="#comunidad" class="text-gray-600 hover:text-indigo-600 font-medium">Comunidad</a>
+                <a href="#contacto" class="bg-indigo-600 text-white px-4 py-2 rounded-lg cta-button">Contactar</a>
             </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="text-gray-800"></i>
+            </button>
         </nav>
-        <!-- Barra de Búsqueda Desplegable (oculta por defecto) -->
-        <div id="search-bar-container" class="bg-gray-100 py-2 px-4 hidden">
-            <div class="container mx-auto">
-                <input type="text" placeholder="Buscar telas, categorías..." class="w-full px-4 py-2 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-gray-100">
-            <a href="#soluciones" class="block py-2 text-gray-600 hover:text-indigo-600">Soluciones para Ti</a>
-            <a href="#colecciones" class="block py-2 text-gray-600 hover:text-indigo-600">Nuestras Telas</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#soluciones" class="block py-2 text-gray-600 hover:text-indigo-600">Soluciones</a>
+            <a href="#colecciones" class="block py-2 text-gray-600 hover:text-indigo-600">Colecciones</a>
             <a href="#comunidad" class="block py-2 text-gray-600 hover:text-indigo-600">Comunidad</a>
-            <a href="#contacto" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-lg cta-button">Habla con un Asesor</a>
+            <a href="#contacto" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-lg cta-button">Contactar</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-gradient py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight">Más que un proveedor de telas, <br class="hidden md:block"> tu <span class="text-secondary-aquamarine">socio estratégico</span> para crecer.</h1>
-                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto">Entendemos los desafíos del microempresario en Santander. Por eso, te ofrecemos soluciones reales, conocimiento y las telas que necesitas para que tu negocio de moda despegue.</p>
+        <section class="hero py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">Insumos textiles para tus creaciones, <br class="hidden md:block"> tu <span class="text-indigo-300">aliado para crecer en Santander</span>.</h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Entendemos tus desafíos. Te ofrecemos soluciones reales, conocimiento y los materiales que necesitas para que tu negocio de moda despegue.</p>
                 <div class="mt-10 flex justify-center space-x-4">
-                    <a href="#soluciones" class="bg-secondary-aquamarine text-primary-blue px-8 py-3 rounded-lg font-semibold text-lg cta-button">Descubre Nuestras Soluciones</a>
-                    <a href="#colecciones" class="bg-white text-primary-blue px-8 py-3 rounded-lg font-semibold text-lg border border-primary-blue cta-button">Ver Catálogo de Telas</a>
+                    <a href="#soluciones" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold text-lg cta-button">Nuestras Soluciones</a>
+                    <a href="#colecciones" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold text-lg border border-gray-300 cta-button">Ver Catálogo</a>
                 </div>
             </div>
         </section>
 
-        <!-- Soluciones para Microempresarios Section -->
         <section id="soluciones" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Soluciones Pensadas <span class="text-secondary-aquamarine">para Ti</span></h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Sabemos que cada metro de tela cuenta. Por eso, creamos herramientas y servicios que se ajustan a la realidad de tu taller o emprendimiento.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Soluciones Pensadas <span class="text-indigo-600">para Ti</span></h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Sabemos que cada metro de tela cuenta. Por eso, creamos servicios que se ajustan a la realidad de tu taller o emprendimiento.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1: Kits para Emprendedores -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <div class="bg-primary-blue/10 text-primary-blue rounded-full h-12 w-12 flex items-center justify-center mb-4">
-                            <i data-lucide="package-check"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kits de Inicio para Emprendedores</h3>
-                        <p class="text-gray-600">¿Necesitas variedad sin comprar rollos enteros? Nuestros kits te dan acceso a distintas telas en metrajes pequeños, ideales para muestrarios, colecciones cápsula o para empezar tu negocio sin una gran inversión.</p>
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-12 w-12 flex items-center justify-center mb-4"><i data-lucide="package-check"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kits para Emprendedores</h3>
+                        <p class="text-gray-600">¿Necesitas variedad sin comprar rollos enteros? Nuestros kits te dan acceso a distintas telas en metrajes pequeños, ideales para muestrarios o colecciones cápsula.</p>
                     </div>
-                    <!-- Card 2: Asesoría y Conocimiento -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <div class="bg-primary-blue/10 text-primary-blue rounded-full h-12 w-12 flex items-center justify-center mb-4">
-                            <i data-lucide="book-open-check"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Asesoría y Conocimiento a tu Alcance</h3>
-                        <p class="text-gray-600">¿"Piel de durazno" o "microfibra perchada"? Te ayudamos a descifrarlo. Accede a nuestro glosario de telas, informes de tendencias y recibe asesoría personalizada para elegir el material perfecto para tu proyecto.</p>
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-12 w-12 flex items-center justify-center mb-4"><i data-lucide="book-open-check"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Asesoría a tu Alcance</h3>
+                        <p class="text-gray-600">Recibe asesoría directa por WhatsApp para elegir el material perfecto para tu proyecto, basada en las últimas tendencias del sector.</p>
                     </div>
-                    <!-- Card 3: Flexibilidad de Compra -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <div class="bg-primary-blue/10 text-primary-blue rounded-full h-12 w-12 flex items-center justify-center mb-4">
-                            <i data-lucide="shopping-cart"></i>
-                        </div>
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-12 w-12 flex items-center justify-center mb-4"><i data-lucide="shopping-cart"></i></div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Flexibilidad de Compra</h3>
-                        <p class="text-gray-600">Compra desde un metro en adelante en una amplia selección de nuestro catálogo. Sin pedidos mínimos agobiantes. Nos adaptamos a tu ritmo de producción y a tu flujo de caja. Tu crecimiento es nuestro objetivo.</p>
+                        <p class="text-gray-600">Compra desde un metro en adelante en una amplia selección de nuestro catálogo. Sin pedidos mínimos. Nos adaptamos a tu ritmo y a tu flujo de caja.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Colecciones de Telas Section (Adaptada a Telas y Elásticos) -->
-        <section id="colecciones" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
+        <section id="colecciones" class="relative py-20 bg-gray-900">
+            <div class="absolute inset-0">
+                <img src="3estante.jpg" alt="Estanterías de telas de colores" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Nuestro Portafolio de <span class="text-secondary-aquamarine">Líneas de Productos</span></h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Organizamos nuestras telas pensando en tus necesidades de producción. Encuentra fácilmente lo que buscas para cada uno de tus proyectos.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nuestras <span class="text-indigo-300">Líneas de Negocio</span></h2>
+                    <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">Materiales organizados para tus necesidades de producción. Encuentra fácilmente lo que buscas para cada proyecto.</p>
                 </div>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-0">
-                    <!-- Categoría: Antifluidos -->
-                    <a href="antifluidos.html" class="category-card-link">
-                        <div class="category-card rounded-none shadow-lg">
-                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="antifluidos2.png">
-                                <source src="antifluidos.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                                <h3 class="text-white text-2xl font-bold group-hover:text-antifluidos-purple transition-colors duration-300">Antifluidos</h3>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p class="mb-4">Telas especializadas que repelen líquidos, ideales para uniformes médicos, estéticos y de servicio.</p>
-                                <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-antifluidos-purple transition-colors">Ver Colección</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Categoría: Bebé Infantil -->
-                    <a href="bebe-infantil.html" class="category-card-link">
-                        <div class="category-card rounded-none shadow-lg">
-                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="bebe2.png">
-                                <source src="bebe.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                                <h3 class="text-white text-2xl font-bold group-hover:text-bebe-pink transition-colors duration-300">Bebé Infantil</h3>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p class="mb-4">Telas suaves, hipoalergénicas y seguras para la piel delicada de los más pequeños.</p>
-                                <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-bebe-pink transition-colors">Ver Colección</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Categoría: Cacharrería -->
-                    <a href="cacharreria.html" class="category-card-link">
-                        <div class="category-card rounded-none shadow-lg">
-                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="boton2.jpg">
-                                <source src="cacharreria.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                                <h3 class="text-white text-2xl font-bold group-hover:text-cacharreria-gray transition-colors duration-300">Cacharrería</h3>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p class="mb-4">Amplia variedad de accesorios como botones, cintas y elásticos para tus proyectos de confección.</p>
-                                <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-cacharreria-gray transition-colors">Ver Colección</span>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Categoría: Deportiva -->
-                    <a href="deportiva.html" class="category-card-link">
-                        <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
-                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="deportivos.png">
-                                <source src="deportiva.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                                <h3 class="text-white text-2xl font-bold group-hover:text-deportiva-red transition-colors duration-300">Deportiva</h3>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p class="mb-4">Telas de alto rendimiento: transpirables, elásticas y resistentes para uniformes y ropa deportiva.</p>
-                                <a href="deportiva.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-deportiva-red transition-colors">Ver Colección</a>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Categoría: Dotación -->
-                    <a href="dotacion.html" class="category-card-link">
-                        <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
-                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="dotacion2.png">
-                                <source src="dotacion.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                                <h3 class="text-white text-2xl font-bold group-hover:text-dotacion-khaki transition-colors duration-300">Dotación</h3>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p class="mb-4">Materiales resistentes y duraderos para uniformes de trabajo pesado y vestuario corporativo.</p>
-                                <a href="dotacion.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-dotacion-khaki transition-colors">Ver Colección</a>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Categoría: Escolar -->
-                    <a href="Escolar.html" class="category-card-link">
-                        <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
-                            <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="escolar.mp4">
-                                <source src="escolar.mp4" type="video/mp4">
-                                Tu navegador no soporta el tag de video.
-                            </video>
-                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                                <h3 class="text-white text-2xl font-bold group-hover:text-escolar-blue transition-colors duration-300">Escolar</h3>
-                            </div>
-                            <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p class="mb-4">Telas duraderas y confortables, ideales para la confección de uniformes escolares de alta calidad.</p>
-                                <a href="Escolar.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-escolar-blue transition-colors">Ver Colección</a>
-                            </div>
-                        </div>
-                    </a>
-                     <!-- Categoría: Hogar -->
-                    <div class="relative group overflow-hidden rounded-xl shadow-lg min-h-[300px]">
-                        <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="hogar.mp4">
-                            <source src="hogar.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                            <h3 class="text-white text-2xl font-bold group-hover:text-hogar-lilac transition-colors duration-300">Hogar</h3>
-                        </div>
-                         <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Variedad de telas para crear ambientes acogedores: cortinas, manteles, sábanas y tapicería.</p>
-                            <a href="hogar.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-hogar-lilac transition-colors">Ver Colección</a>
-                        </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/a5b4fc/312e81?text=Moda+Infantil" alt="Telas para moda infantil" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Moda Infantil</h3></div>
                     </div>
-                     <!-- Categoría: Mujer -->
-                    <div class="relative group overflow-hidden shadow-lg min-h-[300px]">
-                        <video class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-filter duration-500" muted playsinline poster="mujer.mp4">
-                            <source src="mujer.mp4" type="video/mp4">
-                            Tu navegador no soporta el tag de video.
-                        </video>
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6">
-                            <h3 class="text-white text-2xl font-bold group-hover:text-mujer-teal transition-colors duration-300">Mujer</h3>
-                        </div>
-                         <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Las últimas tendencias en telas para diseños femeninos: desde crepés elegantes hasta tejidos con caída perfecta.</p>
-                            <a href="mujer.html" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-mujer-teal transition-colors">Ver Colección</a>
-                        </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/9ca3af/1f2937?text=Uniformes" alt="Telas para uniformes" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Uniformes</h3></div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/d1d5db/4b5563?text=Básicos" alt="Telas básicas" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Básicos</h3></div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/f0abfc/86198f?text=Moda+y+Diseño" alt="Telas para moda y diseño" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Moda y Diseño</h3></div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/fbbf24/b45309?text=Cacharrería" alt="Cacharrería y Mercería" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Cacharrería</h3></div>
+                    </div>
+                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/86efac/14532d?text=Sostenible" alt="Telas sostenibles" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Línea Sostenible</h3></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Comunidad Section -->
         <section id="comunidad" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Crece con Nuestra <span class="text-secondary-aquamarine">Comunidad</span></h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Creemos en el poder de la colaboración. Te invitamos a ser parte de un ecosistema que impulsa la moda en Santander.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Crece con Nuestra <span class="text-indigo-600">Comunidad</span></h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Creemos en el poder de la colaboración. Te invitamos a ser parte de un ecosistema que impulsa la moda local.</p>
                 </div>
-                <div class="bg-primary-blue/10 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+                <div class="bg-indigo-50 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                     <div class="md:w-1/2">
-                        <h3 class="text-2xl font-bold text-gray-900">Talleres y Capacitaciones Exclusivas</h3>
-                        <p class="mt-4 text-gray-700">Participa en nuestros talleres gratuitos sobre tendencias, manejo de nuevas fibras, técnicas de confección y gestión de costos para pequeños talleres. ¡Invierte en tu conocimiento!</p>
-
-                        <h3 class="text-2xl font-bold text-gray-900 mt-8">Mantente a la Vanguardia</h3>
-                        <p class="mt-4 text-gray-700">Suscríbete a nuestro boletín mensual y recibe directamente en tu correo los últimos informes de tendencias, noticias del sector, y acceso prioritario a nuestras nuevas colecciones y promociones.</p>
-
+                        <h3 class="text-xl font-bold text-gray-900">Capacitaciones y Tendencias</h3>
+                        <p class="mt-2 text-gray-700">Participa en nuestros talleres sobre manejo de fibras y gestión de costos. ¡Invierte en tu conocimiento!</p>
+                        <h3 class="text-xl font-bold text-gray-900 mt-6">Mantente a la Vanguardia</h3>
+                        <p class="mt-2 text-gray-700">Suscríbete a nuestro boletín y recibe los últimos informes de tendencias y acceso prioritario a nuevas colecciones.</p>
                         <form class="mt-6 flex flex-col sm:flex-row gap-3">
-                            <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required>
-                            <button type="submit" class="bg-secondary-aquamarine text-primary-blue px-6 py-3 rounded-lg font-semibold cta-button whitespace-nowrap">¡Suscribirme!</button>
+                            <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" required>
+                            <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold cta-button whitespace-nowrap">¡Suscribirme!</button>
                         </form>
                     </div>
-                    <div class="md:w-1/2">
-                                            </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0">
+                        <img src="2muestra.jpg" alt="Composición de telas y paleta de colores" class="rounded-xl shadow-lg w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contacto Section -->
         <section id="contacto" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">¿Listo para Empezar?</h2>
-                     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Nuestro equipo de asesores está listo para ayudarte a encontrar la tela perfecta. Contáctanos y demos juntos el siguiente paso.</p>
+                     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Nuestro equipo está listo para ayudarte a encontrar el material perfecto. Contáctanos y demos juntos el siguiente paso.</p>
                 </div>
                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <h3 class="text-xl font-bold mb-4">Habla con nosotros</h3>
-                             <div class="flex items-center gap-4 mb-4 text-gray-700">
-                                <i data-lucide="phone"></i>
-                                <span>+57 318 7126104</span>
-                            </div>
-                             <div class="flex items-center gap-4 mb-4 text-gray-700">
-                                <i data-lucide="mail"></i>
-                                <span>ventas@telasyelasticos.com</span>
-                            </div>
-                             <div class="flex items-start gap-4 text-gray-700">
-                                <i data-lucide="map-pin" class="mt-1"></i>
-                                <span>CALLE 37 # 16-04 LOCAL: 377, <br>Bucaramanga, Colombia</span>
-                            </div>
+                             <div class="flex items-center gap-4 mb-4 text-gray-700"><i data-lucide="smartphone"></i><a href="https://wa.me/573187126104" target="_blank" class="hover:text-indigo-600">+57 318 7126104</a></div>
+                             <div class="flex items-center gap-4 mb-4 text-gray-700"><i data-lucide="mail"></i><a href="mailto:ventas@telasyelasticos.com" class="hover:text-indigo-600">ventas@telasyelasticos.com</a></div>
+                             <div class="flex items-start gap-4 text-gray-700"><i data-lucide="map-pin" class="mt-1 flex-shrink-0"></i><span>CALLE 37 # 16-04 LOCAL: 377,<br>Bucaramanga, Colombia</span></div>
                         </div>
                         <form>
                             <div class="mb-4">
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required>
+                                <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" required>
                             </div>
                              <div class="mb-4">
                                 <label for="email_contact" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
-                                <input type="email" id="email_contact" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required>
+                                <input type="email" id="email_contact" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" required>
                             </div>
                              <div class="mb-4">
                                 <label for="message" class="block text-sm font-medium text-gray-700 mb-1">¿En qué podemos ayudarte?</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-secondary-aquamarine focus:border-secondary-aquamarine" required></textarea>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold cta-button">Enviar Mensaje</button>
+                            <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold cta-button">Enviar Mensaje</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
-                    <h3 class="text-lg font-bold">Telas y Elásticos S.A.S.</h3>
-                    <p class="mt-2 text-gray-400">Tu socio estratégico para el crecimiento de tu negocio de moda en Santander.</p>
+                    <h3 class="text-lg font-bold">Telas y Elásticos</h3>
+                    <p class="mt-2 text-gray-400">Tu aliado estratégico para el crecimiento de tu negocio de moda en Santander.</p>
                 </div>
                 <div>
                      <h3 class="text-lg font-semibold mb-2">Navegación</h3>
-                     <ul>
+                     <ul class="space-y-2">
                          <li><a href="#soluciones" class="text-gray-400 hover:text-white">Soluciones</a></li>
-                         <li><a href="#colecciones" class="text-gray-400 hover:text-white">Nuestras Telas</a></li>
+                         <li><a href="#colecciones" class="text-gray-400 hover:text-white">Colecciones</a></li>
                          <li><a href="#comunidad" class="text-gray-400 hover:text-white">Comunidad</a></li>
                      </ul>
                 </div>
                  <div>
                      <h3 class="text-lg font-semibold mb-2">Síguenos</h3>
-                     <div class="flex space-x-4">
+                     <div class="flex space-x-4 justify-center md:justify-start">
                          <a href="https://www.instagram.com/telasyelasticos/" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
-                         <a href="https://www.facebook.com/profile.php?id=100063649790074" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="facebook"></i></a>
-                         <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="youtube"></i></a>
+                         <a href="https://www.facebook.com/telasyelasticos" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="facebook"></i></a>
                      </div>
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
-                &copy; <span id="year"></span> Telas y Elásticos S.A.S. Todos los derechos reservados.
+                &copy; <span id="year"></span> Telas y Elásticos. Todos los derechos reservados.
             </div>
         </div>
     </footer>
-
-    <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/573187126104" target="_blank" class="whatsapp-float bg-whatsapp text-white">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
-
     <script>
         // Lucide Icons initialization
         lucide.createIcons();
-
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Search bar toggle
-        const searchIconButton = document.getElementById('search-icon-button');
-        const searchBarContainer = document.getElementById('search-bar-container');
-        if (searchIconButton && searchBarContainer) {
-            searchIconButton.addEventListener('click', () => {
-                searchBarContainer.classList.toggle('hidden');
-                searchBarContainer.classList.toggle('active'); // Para la transición de altura
-            });
-        }
-
-        // Modals (User and Cart)
-        const userIconButton = document.getElementById('user-icon-button');
-        const userModalOverlay = document.getElementById('user-modal-overlay');
-        const userModalCloseButton = document.getElementById('user-modal-close');
-
-        const cartIconButton = document.getElementById('cart-icon-button');
-        const cartModalOverlay = document.getElementById('cart-modal-overlay');
-        const cartModalCloseButton = document.getElementById('cart-modal-close');
-
-        // User Modal Logic
-        if (userIconButton && userModalOverlay && userModalCloseButton) {
-            userIconButton.addEventListener('click', () => {
-                userModalOverlay.classList.add('active');
-            });
-            userModalCloseButton.addEventListener('click', () => {
-                userModalOverlay.classList.remove('active');
-            });
-            userModalOverlay.addEventListener('click', (event) => {
-                if (event.target === userModalOverlay) {
-                    userModalOverlay.classList.remove('active');
-                }
-            });
-        }
-
-        // Cart Modal Logic
-        if (cartIconButton && cartModalOverlay && cartModalCloseButton) {
-            cartIconButton.addEventListener('click', () => {
-                cartModalOverlay.classList.add('active');
-            });
-            cartModalCloseButton.addEventListener('click', () => {
-                cartModalOverlay.classList.remove('active');
-            });
-            cartModalOverlay.addEventListener('click', (event) => {
-                if (event.target === cartModalOverlay) {
-                    cartModalOverlay.classList.remove('active');
-                }
-            });
-        }
-
-
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Video play/pause on hover for category cards
-        // Esta lógica de video es específica si tienes videos en las tarjetas.
-        // Si las tarjetas son solo imágenes, puedes eliminar este bloque.
-        document.querySelectorAll('.relative.group.overflow-hidden').forEach(card => {
-            const video = card.querySelector('video');
-            if (video) {
-                card.addEventListener('mouseenter', () => {
-                    video.play();
-                });
-                card.addEventListener('mouseleave', () => {
-                    video.pause();
-                    video.currentTime = 0; // Rewind video to start
-                });
-            }
-        });
-
     </script>
 </body>
 </html>
-
