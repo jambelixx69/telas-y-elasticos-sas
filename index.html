@@ -56,39 +56,44 @@
         </svg>
     </a>
 
-    <header class="relative pt-12">
-        <div class="bg-white/80 backdrop-blur-sm shadow-sm">
-            <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-                <div class="w-1/3"></div>
+    <header class="sticky top-0 z-40">
+        <div class="container mx-auto px-6 h-16 flex items-center justify-center">
+            <div class="relative w-full">
+                <div class="absolute top-0 left-0 w-full h-full bg-white/80 backdrop-blur-sm shadow-md rounded-b-lg"></div>
                 
-                <div class="w-1/3 hidden md:flex justify-center items-center space-x-6">
-                    <a href="#soluciones" class="text-gray-600 hover:text-indigo-600 font-medium">Soluciones</a>
-                    <a href="#colecciones" class="text-gray-600 hover:text-indigo-600 font-medium">Colecciones</a>
-                    <a href="#comunidad" class="text-gray-600 hover:text-indigo-600 font-medium">Comunidad</a>
-                </div>
-                
-                <div class="w-1/3 flex justify-end">
-                     <a href="#contacto" class="hidden md:block bg-indigo-600 text-white px-4 py-2 rounded-lg cta-button">Contactar</a>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu" class="text-gray-800"></i></button>
-            </nav>
+                <nav class="relative z-10 h-16 flex items-center justify-between px-6">
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#soluciones" class="text-gray-700 hover:text-indigo-600 font-semibold">Soluciones</a>
+                        <a href="#colecciones" class="text-gray-700 hover:text-indigo-600 font-semibold">Colecciones</a>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#comunidad" class="text-gray-700 hover:text-indigo-600 font-semibold">Comunidad</a>
+                        <a href="#contacto" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-semibold cta-button">Contactar</a>
+                    </div>
+                    
+                    <a href="index.html" class="md:hidden">
+                         <img src="logo1.png" alt="Telas y Elásticos Logo" class="h-10 w-10">
+                    </a>
+
+                    <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu" class="text-gray-800 h-8 w-8"></i></button>
+                </nav>
+            </div>
         </div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 z-50">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 z-50 hidden md:block">
             <a href="index.html" class="block bg-white p-2 rounded-full shadow-lg">
                 <img src="logo1.png" alt="Telas y Elásticos Logo" class="h-20 w-20"> </a>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4 shadow-lg">
-            <a href="#soluciones" class="block py-2 text-gray-600 hover:text-indigo-600">Soluciones</a>
-            <a href="#colecciones" class="block py-2 text-gray-600 hover:text-indigo-600">Colecciones</a>
-            <a href="#comunidad" class="block py-2 text-gray-600 hover:text-indigo-600">Comunidad</a>
-            <a href="#contacto" class="block mt-2 bg-indigo-600 text-white text-center px-4 py-2 rounded-lg cta-button">Contactar</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white text-center px-6 pb-4 shadow-lg rounded-b-lg">
+            <a href="#soluciones" class="block py-3 text-lg text-gray-700 hover:text-indigo-600">Soluciones</a>
+            <a href="#colecciones" class="block py-3 text-lg text-gray-700 hover:text-indigo-600">Colecciones</a>
+            <a href="#comunidad" class="block py-3 text-lg text-gray-700 hover:text-indigo-600">Comunidad</a>
+            <a href="#contacto" class="block mt-3 bg-indigo-600 text-white text-center px-4 py-3 rounded-full cta-button">Contactar</a>
         </div>
     </header>
 
-
     <main>
-        <section class="hero py-20 md:py-32">
+        <section class="hero pt-16 md:pt-20 pb-20 md:pb-32">
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">Insumos textiles para tus creaciones, <br class="hidden md:block"> tu <span class="text-indigo-300">aliado para crecer en Santander</span>.</h1>
                 <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Entendemos tus desafíos. Te ofrecemos soluciones reales, conocimiento y los materiales que necesitas para que tu negocio de moda despegue.</p>
@@ -133,20 +138,20 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <a href="moda_infantil.html" class="relative group block overflow-hidden rounded-xl shadow-lg">
+                    <a href="moda-infantil.html" class="relative group block overflow-hidden rounded-xl shadow-lg">
                         <img src="https://placehold.co/600x400/a5b4fc/312e81?text=Moda+Infantil" alt="Telas para moda infantil" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Moda Infantil</h3></div>
                         <div class="absolute inset-0 bg-indigo-700 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Telas suaves, seguras e hipoalergénicas para la piel delicada de los más pequeños.</p>
+                            <p class="mb-4">Telas suaves y seguras para la piel de los más pequeños.</p>
                             <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold">Ver Colección</span>
                         </div>
                     </a>
 
-                    <a href="uniformes.html" class="relative group block overflow-hidden rounded-xl shadow-lg">
+                     <a href="uniformes.html" class="relative group block overflow-hidden rounded-xl shadow-lg">
                         <img src="https://placehold.co/600x400/9ca3af/1f2937?text=Uniformes" alt="Telas para uniformes" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Uniformes</h3></div>
                          <div class="absolute inset-0 bg-gray-700 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Popelina y Drill de alta durabilidad y fácil mantenimiento, perfectas para dotaciones.</p>
+                            <p class="mb-4">Telas de alta durabilidad y fácil mantenimiento.</p>
                             <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold">Ver Colección</span>
                         </div>
                     </a>
@@ -155,16 +160,16 @@
                         <img src="https://placehold.co/600x400/d1d5db/4b5563?text=Básicos" alt="Telas básicas como denim y popelina" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Básicos</h3></div>
                          <div class="absolute inset-0 bg-gray-900 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Denim, Popelina, Drill, Jersey y Chalis de alta rotación y calidad garantizada.</p>
+                            <p class="mb-4">Denim, Popelina, Drill y más, con calidad garantizada.</p>
                             <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold">Ver Colección</span>
                         </div>
                     </a>
 
-                    <a href="#" class="relative group block overflow-hidden rounded-xl shadow-lg">
+                     <a href="#" class="relative group block overflow-hidden rounded-xl shadow-lg">
                         <img src="https://placehold.co/600x400/f0abfc/86198f?text=Moda+y+Diseño" alt="Telas para moda y diseño" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Moda y Diseño</h3></div>
                          <div class="absolute inset-0 bg-fuchsia-800 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Crea sin límites con nuestra selección de Crepés, Linos, Sedas y Satines de tendencia.</p>
+                            <p class="mb-4">Crepés, Linos, Sedas y Satines de tendencia.</p>
                             <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold">Ver Colección</span>
                         </div>
                     </a>
@@ -173,7 +178,7 @@
                         <img src="https://placehold.co/600x400/fbbf24/b45309?text=Cacharrería" alt="Cacharrería y Mercería" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Cacharrería</h3></div>
                         <div class="absolute inset-0 bg-amber-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Todo para el acabado perfecto: Hilos, cintas, botones, hebillas y más complementos.</p>
+                            <p class="mb-4">Hilos, cintas, botones, hebillas y más.</p>
                             <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold">Ver Colección</span>
                         </div>
                     </a>
@@ -182,7 +187,7 @@
                         <img src="https://placehold.co/600x400/86efac/14532d?text=Sostenible" alt="Telas sostenibles y ecológicas" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Línea Sostenible</h3></div>
                         <div class="absolute inset-0 bg-green-700 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="mb-4">Algodón orgánico, poliéster reciclado (PET) y otras fibras eco-amigables.</p>
+                            <p class="mb-4">Algodón orgánico y fibras eco-amigables.</p>
                             <span class="border-2 border-white px-4 py-2 rounded-lg font-semibold">Ver Colección</span>
                         </div>
                     </a>
@@ -208,7 +213,7 @@
                         </form>
                     </div>
                     <div class="md:w-1/2 mt-8 md:mt-0">
-                        <img src="2muestra.png" alt="Composición de telas y paleta de colores" class="rounded-xl shadow-lg w-full h-full object-cover">
+                        <img src="2muestra.jpg" alt="Composición de telas y paleta de colores" class="rounded-xl shadow-lg w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -282,7 +287,6 @@
         lucide.createIcons();
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.querySelector('header');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
