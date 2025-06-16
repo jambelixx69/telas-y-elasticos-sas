@@ -14,12 +14,11 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Custom Styles */
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-        /* --- IMAGEN 1 INTEGRADA AQUÍ --- */
+        /* --- IMAGEN 1 (mujer.png) INTEGRADA CON SUPERPOSICIÓN PARA LEGIBILIDAD --- */
         .hero {
             background: linear-gradient(rgba(40, 50, 70, 0.5), rgba(40, 50, 70, 0.3)), url('1mujer.png') no-repeat center center/cover;
         }
@@ -32,17 +31,16 @@
         }
         .whatsapp-button {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background-color: #25D366;
-            color: white;
             border-radius: 50%;
             width: 60px;
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             transition: transform 0.3s ease;
         }
@@ -54,8 +52,8 @@
 <body class="bg-gray-50 text-gray-800">
 
     <a href="https://wa.me/573187126104" target="_blank" class="whatsapp-button" aria-label="Contactar por WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.48 1.32 4.95L2 22l5.25-1.38c1.41.81 3.02 1.29 4.79 1.29h.01c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zM18 13.45c-.14-.24-.28-.38-.5-.62-.22-.24-.48-.38-.73-.52-.25-.14-.52-.2-.8-.2-.3 0-.58.07-.84.2-.27.13-.52.33-.75.6l-.35.42c-.2.24-.4.45-.64.6-.24.14-.5.23-.77.18-.52-.1-1.04-.37-1.57-.77s-1-1-1.38-1.55c-.18-.27-.35-.57-.48-.9s-.15-.65-.13-1c.02-.35.12-.68.3-1 .1-.1.2-.2.3-.2h.4c.18 0 .35-.04.5-.13.15-.1.3-.23.48-.42.18-.18.3-.4.4-.65.1-.25.14-.53.1-.84-.04-.3-.15-.58-.33-.8-.18-.22-.4-.38-.64-.45l-.48-.08c-.2 0-.38-.02-.56-.02-.45 0-.88.13-1.28.38-.4.25-.72.57-.97.97-.24.4-.4.84-.45 1.3-.05.45 0 .9.13 1.35.13.45.38.9.7 1.33.34.45.75.9 1.23 1.35.48.45 1 .85 1.57 1.2.58.35 1.2.6 1.87.77.3.08.6.12.87.12.38 0 .74-.08 1.08-.24.34-.16.65-.38.9-.68.25-.3.48-.64.68-1.02.2-.38.3-.78.3-1.2 0-.2-.03-.4-.08-.6z"/>
         </svg>
     </a>
 
@@ -70,9 +68,7 @@
                 <a href="#comunidad" class="text-gray-600 hover:text-indigo-600 font-medium">Comunidad</a>
                 <a href="#contacto" class="bg-indigo-600 text-white px-4 py-2 rounded-lg cta-button">Contactar</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu" class="text-gray-800"></i>
-            </button>
+            <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu" class="text-gray-800"></i></button>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#soluciones" class="block py-2 text-gray-600 hover:text-indigo-600">Soluciones</a>
@@ -101,7 +97,7 @@
                     <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Sabemos que cada metro de tela cuenta. Por eso, creamos servicios que se ajustan a la realidad de tu taller o emprendimiento.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                     <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
                         <div class="bg-indigo-100 text-indigo-600 rounded-full h-12 w-12 flex items-center justify-center mb-4"><i data-lucide="package-check"></i></div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Kits para Emprendedores</h3>
                         <p class="text-gray-600">¿Necesitas variedad sin comprar rollos enteros? Nuestros kits te dan acceso a distintas telas en metrajes pequeños, ideales para muestrarios o colecciones cápsula.</p>
@@ -120,45 +116,72 @@
             </div>
         </section>
 
-        <section id="colecciones" class="relative py-20 bg-gray-900">
-            <div class="absolute inset-0">
-                <img src="3estante.jpg" alt="Estanterías de telas de colores" class="w-full h-full object-cover opacity-30">
-            </div>
-            <div class="container mx-auto px-6 relative z-10">
+        <section id="colecciones" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Nuestras <span class="text-indigo-300">Líneas de Negocio</span></h2>
-                    <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">Materiales organizados para tus necesidades de producción. Encuentra fácilmente lo que buscas para cada proyecto.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Nuestras <span class="text-indigo-600">Líneas de Negocio</span></h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Materiales organizados para tus necesidades de producción. Encuentra fácilmente lo que buscas para cada proyecto.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/a5b4fc/312e81?text=Moda+Infantil" alt="Telas para moda infantil" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/600x400/a5b4fc/312e81?text=Moda+Infantil" alt="Telas para moda infantil" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Moda Infantil</h3></div>
+                        <div class="absolute inset-0 bg-indigo-700 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Telas suaves, seguras e hipoalergénicas para la piel delicada de los más pequeños.</p>
+                            <a href="#" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-indigo-700 transition-colors">Ver Colección</a>
+                        </div>
                     </div>
+
                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/9ca3af/1f2937?text=Uniformes" alt="Telas para uniformes" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/600x400/9ca3af/1f2937?text=Uniformes" alt="Telas para uniformes" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Uniformes</h3></div>
+                         <div class="absolute inset-0 bg-gray-700 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Popelina y Drill de alta durabilidad y fácil mantenimiento, perfectas para dotaciones.</p>
+                            <a href="#" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-gray-700 transition-colors">Ver Colección</a>
+                        </div>
                     </div>
+
                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/d1d5db/4b5563?text=Básicos" alt="Telas básicas" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/600x400/d1d5db/4b5563?text=Básicos" alt="Telas básicas como denim y popelina" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Básicos</h3></div>
+                         <div class="absolute inset-0 bg-gray-900 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Denim, Popelina, Drill, Jersey y Chalis de alta rotación y calidad garantizada.</p>
+                            <a href="#" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">Ver Colección</a>
+                        </div>
                     </div>
+
                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/f0abfc/86198f?text=Moda+y+Diseño" alt="Telas para moda y diseño" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/600x400/f0abfc/86198f?text=Moda+y+Diseño" alt="Telas para moda y diseño" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Moda y Diseño</h3></div>
+                         <div class="absolute inset-0 bg-fuchsia-800 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Crea sin límites con nuestra selección de Crepés, Linos, Sedas y Satines de tendencia.</p>
+                            <a href="#" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-fuchsia-800 transition-colors">Ver Colección</a>
+                        </div>
                     </div>
+                    
                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/fbbf24/b45309?text=Cacharrería" alt="Cacharrería y Mercería" class="w-full h-full object-cover">
+                        <img src="https://placehold.co/600x400/fbbf24/b45309?text=Cacharrería" alt="Cacharrería y Mercería" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Cacharrería</h3></div>
+                        <div class="absolute inset-0 bg-amber-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Todo para el acabado perfecto: Hilos, cintas, botones, hebillas y más complementos.</p>
+                            <a href="#" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-amber-600 transition-colors">Ver Colección</a>
+                        </div>
                     </div>
-                     <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/86efac/14532d?text=Sostenible" alt="Telas sostenibles" class="w-full h-full object-cover">
+
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://placehold.co/600x400/86efac/14532d?text=Sostenible" alt="Telas sostenibles y ecológicas" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-2xl font-bold">Línea Sostenible</h3></div>
+                        <div class="absolute inset-0 bg-green-700 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="mb-4">Algodón orgánico, poliéster reciclado (PET) y otras fibras eco-amigables.</p>
+                            <a href="#" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition-colors">Ver Colección</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="comunidad" class="py-20 bg-white">
+        
+        <section id="comunidad" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Crece con Nuestra <span class="text-indigo-600">Comunidad</span></h2>
@@ -166,9 +189,9 @@
                 </div>
                 <div class="bg-indigo-50 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
                     <div class="md:w-1/2">
-                        <h3 class="text-xl font-bold text-gray-900">Capacitaciones y Tendencias</h3>
+                        <h3 class="text-2xl font-bold text-gray-900">Capacitaciones y Tendencias</h3>
                         <p class="mt-2 text-gray-700">Participa en nuestros talleres sobre manejo de fibras y gestión de costos. ¡Invierte en tu conocimiento!</p>
-                        <h3 class="text-xl font-bold text-gray-900 mt-6">Mantente a la Vanguardia</h3>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-6">Mantente a la Vanguardia</h3>
                         <p class="mt-2 text-gray-700">Suscríbete a nuestro boletín y recibe los últimos informes de tendencias y acceso prioritario a nuevas colecciones.</p>
                         <form class="mt-6 flex flex-col sm:flex-row gap-3">
                             <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" required>
@@ -176,7 +199,7 @@
                         </form>
                     </div>
                     <div class="md:w-1/2 mt-8 md:mt-0">
-                        <img src="2muestra.jpg" alt="Composición de telas y paleta de colores" class="rounded-xl shadow-lg w-full h-full object-cover">
+                        <img src="2muestra.png" alt="Composición de telas y paleta de colores" class="rounded-xl shadow-lg w-full h-full object-cover">
                     </div>
                 </div>
             </div>
